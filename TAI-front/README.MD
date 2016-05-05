@@ -7,6 +7,7 @@
     npm run dev
 
 Aplikacja znajduje się na porcie :9000 - http://localhost:9000
+Lub 9001
 
 # Uruchomienie mock serweru #
 
