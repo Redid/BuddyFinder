@@ -1,0 +1,54 @@
+#register {
+  text-align: center;
+  button {
+    display: inline-block;
+  }
+  #h13 {
+    margin-left: 180px;
+    font-weight: bold;
+    color: #4B4B4B;
+    font-size: 150%;
+  }
+
+
+  #text{
+    padding-top: 40px;
+    color: #407D85;
+    font: italic normal bold 20px/1 "bangers", Helvetica, sans-serif;
+  }
+
+  input {
+    height: 30px;
+    margin-top: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: #F0F0F0;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  }
+
+  label {
+    padding-top: 5px;
+  }
+
+  #okButton{
+    margin-top: 20px;
+    display: block;
+    margin-left: 270px;
+    margin-right: auto;
+    background-color: #407D85;
+    border-color: #407D85;
+    box-shadow: 3px 4px 2px 0 rgba(0,0,0,0.1)  ;
+
+  }
+
+  #another2{
+    padding-top: 20px;
+  }
+
+  .control-label{
+    text-align: left;
+    font-size: 0.7em;
+  }
+}
