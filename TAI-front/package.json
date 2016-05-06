@@ -1,5 +1,5 @@
 {
-  "name": "termity-front",
+  "name": "tai-front",
   "version": "1.0.0",
   "description": "An Application Shell for generating Angular Applications with Webpack and ES6",
   "main": "app.js",
@@ -13,7 +13,7 @@
     "webpack",
     "es6"
   ],
-  "author": "Sean Larkin",
+  "author": "Izabella Szlosarczyk",
   "license": "ISC",
   "devDependencies": {
     "angular-mocks": "^1.4.7",
