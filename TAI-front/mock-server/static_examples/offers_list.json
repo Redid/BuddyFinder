@@ -1,16 +1,16 @@
 {
   "offers": [{
-    "subject": "0",
-    "userId": "userId0",
-    "term": "termId0",
-    "preferredTerms": [ "termId1" ],
-    "preferredProfessor": [ "profId1" ]
+    "type": "Date",
+    "where": "Krakow",
+    "when": "12.10.2016",
+    "anotherInfo": "info info info",
+    "user": [ "userId1" ]
   }, {
-    "subject": "1",
-    "userId": "userId3",
-    "term": "termId3",
-    "preferredTerms": [ "termId3" ],
-    "preferredProfessor": [ "profId3" ]
+    "type": "Game",
+    "where": "Krakow",
+    "when": "04.11.2017",
+    "anotherInfo": "info info info",
+    "user": [ "userId2" ]
   }],
   "count": 2
 }

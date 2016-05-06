@@ -1,9 +1,7 @@
 {
-  "subject": "subjectID0",
-  "userId": "userId0",
-  "term": "termId0",
-  "preferredTerms": [{
-    "termId": "termID0"},{"termId": "termID1"}, {"termId": "termID2"}],
-  "preferredProfessor": [ {
-    "professorId": "professorID0"}, {"professorId": "professorID1"}, {"professorId": "professorID2"}]
+  "type": "Date",
+  "where": "Krakow",
+  "when": "12.10.2016",
+  "anotherInfo": "info info info",
+  "user":  "userId1"
 }

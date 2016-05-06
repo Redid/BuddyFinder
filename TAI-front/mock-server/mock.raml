@@ -1,5 +1,5 @@
 #%RAML 0.8
-title: "Termity mock serwer"
+title: "TAI mock serwer"
 version: "v1"
 baseUri: "http://localhost"
 protocols: [HTTP]
@@ -114,17 +114,3 @@ mediaType: "application/json"
           body:
             application/json:
               example: !include static_examples/offer.json
-/subjects:
-  get:
-    responses:
-      200:
-        body:
-          application/json:
-            example: !include static_examples/subject_list.json
-  /:{subjectId}:
-    get:
-      responses:
-        200:
-          body:
-            application/json:
-              example: !include static_examples/subject.json
