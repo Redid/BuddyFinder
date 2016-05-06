@@ -16,6 +16,8 @@ public class Offer  extends AbstractModel {
     private Date when;
     private String where;
     private String anotherInfo;
+    private String preferredSex;
+    private String preferredAge;
 
     public Offer(){
     }
@@ -59,5 +61,21 @@ public class Offer  extends AbstractModel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getPreferredSex() {
+        return preferredSex;
+    }
+
+    public void setPreferredSex(String preferredSex) {
+        this.preferredSex = preferredSex;
+    }
+
+    public String getPreferredAge() {
+        return preferredAge;
+    }
+
+    public void setPreferredAge(String preferredAge) {
+        this.preferredAge = preferredAge;
     }
 }
