@@ -4,7 +4,7 @@
         <img src="./assets/fff.png" id="im" class="img-responsive">
         <p id="text">Sshh!! Don't tell your mother!</p>
     </div>
-    <div class="col-xs-offset-1 col-xs-6">
+    <div class="col-xs-offset-1 col-xs-6" id="cont2">
         <h1 id="h13">Don't wait any longer , register!</h1>
         <form class="form-horizontal" novalidate>
             <fieldset>
@@ -43,12 +43,22 @@
                                ng-model="registerCtrl.repeatedPassword" required>
                     </div>
                 </div>
+                <label for="selectSex" class="col-xs-12 control-label" id="labelSex">Sex</label>
+                <div class="col-xs-6">
+                    <select class="form-control" id="selectSex">
+                        <option>male</option>
+                        <option>female</option>
+                        <option>other</option>
+                    </select>
+                </div>
                 <div class="form-group">
                     <div class="col-xs-12">
                         <button type="submit" id= "okButton" class="btn btn-success" ng-click="registerCtrl.register()">Register</button>
                     </div>
                 </div>
-            </fieldset>
+                </fieldset>
         </form>
+        <p id="line">_______________________________________________________________________</p>
+        <p id="regi">By clicking Sign Up, you agree to our <b>Terms</b> and that you have read our <b>Data Policy</b>, including our <b>Cookie Use</b>.</p>
     </div>
 </div>
