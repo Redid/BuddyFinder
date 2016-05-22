@@ -1,6 +1,4 @@
-/**
- * Created by arkadiusz on 15.04.16.
- */
+
 export default class RegisterController {
     constructor(usersService, $state) {
         this.usersService = usersService;

@@ -1,16 +1,28 @@
 {
   "offers": [{
-    "subject": "0",
-    "userId": "userId0",
-    "term": "termId0",
-    "preferredTerms": [ "termId1" ],
-    "preferredProfessor": [ "profId1" ]
+    "type": "GAME",
+    "userId": "userId1", //tutaj bedzie po prostu obiekt user
+    "when": "10.12.2017",
+    "where": "Cracow",
+    "anotherInfo":"bleble",
+    "prefferedSex" :"female",
+    "prefferedAge":"20-30"
   }, {
-    "subject": "1",
-    "userId": "userId3",
-    "term": "termId3",
-    "preferredTerms": [ "termId3" ],
-    "preferredProfessor": [ "profId3" ]
+    "type": "DATE",
+    "userId": "userId0", //tutaj bedzie po prostu obiekt user
+    "when": "19.12.2017",
+    "where": "RADOM",
+    "anotherInfo":"bleble",
+    "prefferedSex" :"male",
+    "prefferedAge":"30-50"
+  }, {
+    "type": "PARTY",
+    "userId": "userId3", //tutaj bedzie po prostu obiekt user
+    "when": "19.12.2017",
+    "where": "RADOM",
+    "anotherInfo":"bleble",
+    "prefferedSex" :"male",
+    "prefferedAge":"30-50"
   }],
-  "count": 2
+  "count": 3
 }
