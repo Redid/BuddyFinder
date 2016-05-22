@@ -1,7 +1,7 @@
 package com.tai.repository;
 
 
-import com.tai.database.User;
+import com.tai.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

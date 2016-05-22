@@ -1,9 +1,13 @@
-package com.tai.database;
+package com.tai.model;
 
+import com.tai.database.AbstractModel;
+import com.tai.model.User;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by izabella on 23.04.16.
@@ -13,22 +17,22 @@ public class Offer  extends AbstractModel {
     private String type;
     @DBRef
     private User user;
-    private Date when;
+    private List<Timer> when;
     private String where;
     private String anotherInfo;
     private String preferredSex;
     private String preferredAge;
 
     public Offer(){
+        this.when = new ArrayList<>();
     }
 
-
-    public Date getWhen() {
+    public List<Timer> getWhen() {
         return when;
     }
 
-    public void setWhen(Date when) {
-        this.when = when;
+    public void addWhen(Timer when){
+        this.when.add(when);
     }
 
     public String getWhere() {

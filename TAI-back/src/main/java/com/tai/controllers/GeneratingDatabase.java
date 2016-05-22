@@ -1,8 +1,9 @@
 package com.tai.controllers;
 
 import com.tai.database.DataGenerator;
-import com.tai.database.Offer;
-import com.tai.database.User;
+import com.tai.model.Offer;
+import com.tai.model.Timer;
+import com.tai.model.User;
 import com.tai.repository.OfferRepository;
 import com.tai.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +60,9 @@ public class GeneratingDatabase {
         //dokument dla oferty
         for (int i = 0; i < offersList.size(); i = i + 1) {
             offersList.get(i).setWhere(offersList.get(i).getWhere());
-            offersList.get(i).setWhen(offersList.get(i).getWhen());
+            for(Timer timer: offersList.get(i).getWhen()){
+                offersList.get(i).addWhen(timer);
+            }
             offersList.get(i).setType(offersList.get(i).getType());
             offersList.get(i).setAnotherInfo(offersList.get(i).getAnotherInfo());
             tmp = Math.abs(r.nextInt())+1;

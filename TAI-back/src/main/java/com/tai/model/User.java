@@ -1,5 +1,6 @@
-package com.tai.database;
+package com.tai.model;
 
+import com.tai.database.AbstractModel;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**

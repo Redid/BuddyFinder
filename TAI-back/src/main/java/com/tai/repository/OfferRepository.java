@@ -1,6 +1,6 @@
 package com.tai.repository;
 
-import com.tai.database.Offer;
+import com.tai.model.Offer;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Date;

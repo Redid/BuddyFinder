@@ -1,5 +1,8 @@
 package com.tai.database;
 
+import com.tai.model.Offer;
+import com.tai.model.User;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
