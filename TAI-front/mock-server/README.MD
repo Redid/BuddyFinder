@@ -32,19 +32,18 @@ WSZYSTKIE POSTY POZA LOGIN mają mieć parametr token=STRING_TOKENU
 w zwrotce:
 {
     email: String,
-    name: String,
-    surname: String,
-    id: String, #NUMER INDEKSU
-    year: String
+    lastname: String,
+    firstname: String,
+    login: String
+
 }
 
 /users/:id/edit POST #ZMIANA INFORMACJI
 {
     email: String,
-    name: String,
-    surname: String,
-    id: String, #NUMER INDEKSU
-    year: String
+    firstname: String,
+    lastname: String,
+    login: String
 }
 
 w zwrotce:
@@ -64,8 +63,7 @@ lub
     email: String,
     name: String,
     surname: String,
-    id: String, #NUMER INDEKSU
-    year: String,
+    login: String,
     password: String
 }
 
@@ -85,11 +83,13 @@ lub
 
 w zwrotce:
 {
-    subject: ID,
-    userId: ID usera,
-    term: ID terminu aktualnego,
-    preferredTerms: [ ID terminów ],
-    preferredProfessor: [ ID prowadzacych ]
+    type: TypeOfOffer,
+    user: OfferOwner,
+    when: Date,
+    where: Place,
+    anotherInfo: StringWithInfo,
+    prefferedSex: femaleOrMale,
+    prefferedAge: AgeRange
 }
 
 /offers GET #LISTA WSZYSTKICH OFERT
@@ -97,11 +97,13 @@ w zwrotce:
 w zwrotce:
 {
     offers: [{
-                 subject: ID,
-                 userId: ID usera,
-                 term: ID terminu aktualnego,
-                 preferredTerms: [ ID terminów ],
-                 preferredProfessor: [ ID prowadzacych ]
+                 type: TypeOfOffer,
+                 user: OfferOwner,
+                 when: Date,
+                 where: Place,
+                 anotherInfo: StringWithInfo,
+                 prefferedSex: femaleOrMale,
+                 prefferedAge: AgeRange
              }],
     count: INTEGER #ILE JEST WSZYSTKICH
 }
@@ -110,11 +112,13 @@ w zwrotce:
 w zwrotce:
 {
     offers: [{
-                 subject: ID,
-                 userId: ID usera,
-                 term: ID terminu aktualnego,
-                 preferredTerms: [ ID terminów ],
-                 preferredProfessor: [ ID prowadzacych ]
+                 type: TypeOfOffer,
+                 user: OfferOwner,
+                 when: Date,
+                 where: Place,
+                 anotherInfo: StringWithInfo,
+                 prefferedSex: femaleOrMale,
+                 prefferedAge: AgeRange
              }],
     count: INTEGER #ILE JEST WSZYSTKICH
 }
@@ -123,22 +127,26 @@ w zwrotce:
 w zwrotce:
 {
     offers: [{
-                 subject: ID,
-                 userId: ID usera,
-                 term: ID terminu aktualnego,
-                 preferredTerms: [ ID terminów ],
-                 preferredProfessor: [ ID prowadzacych ]
+                 type: TypeOfOffer,
+                 user: OfferOwner,
+                 when: Date,
+                 where: Place,
+                 anotherInfo: StringWithInfo,
+                 prefferedSex: femaleOrMale,
+                 prefferedAge: AgeRange
              }],
     count: INTEGER #ILE JEST WSZYSTKICH
 }
 
 /users/:id/offers/new POST #DODAJ OFERTE
 {
-     subject: ID,
-     userId: ID usera,
-     term: ID terminu aktualnego,
-     preferredTerms: [ ID terminów ],
-     preferredProfessor: [ ID prowadzacych ]
+                 type: TypeOfOffer,
+                 user: OfferOwner,
+                 when: Date,
+                 where: Place,
+                 anotherInfo: StringWithInfo,
+                 prefferedSex: femaleOrMale,
+                 prefferedAge: AgeRange
 }
 
 w zwrotce:
@@ -156,11 +164,13 @@ lub
 
 /users/:id/offers/:offerId/edit POST #EDYCJA OFERTY
 {
-     subject: ID,
-     userId: ID usera,
-     term: ID terminu aktualnego,
-     preferredTerms: [ ID terminów ],
-     preferredProfessor: [ ID prowadzacych ]
+                 type: TypeOfOffer,
+                 user: OfferOwner,
+                 when: Date,
+                 where: Place,
+                 anotherInfo: StringWithInfo,
+                 prefferedSex: femaleOrMale,
+                 prefferedAge: AgeRange
 }
 
 w zwrotce:
@@ -188,18 +198,4 @@ lub
     status: error,
     title: String,
     detail:String
-}
-
-
-/subjects/:subject/list GET #LISTA przedmiotów wraz z terminami i prowadzacymi
-w zwrotce:
-{
-     subject: ID,
-     subjectName: String,
-     terms: [{
-        termId: ID terminu,
-        professorId: ID profesora,
-        termDate: data terminu,
-        professorName: String imię i nazwisko profesora
-     }]
 }

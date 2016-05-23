@@ -1,9 +1,9 @@
 {
-  "subject": "subjectID0",
-  "userId": "userId0",
-  "term": "termId0",
-  "preferredTerms": [{
-    "termId": "termID0"},{"termId": "termID1"}, {"termId": "termID2"}],
-  "preferredProfessor": [ {
-    "professorId": "professorID0"}, {"professorId": "professorID1"}, {"professorId": "professorID2"}]
+  "type": "GAME",
+  "userId": "userId1", //tutaj bedzie po prostu obiekt user
+  "when": "10.12.2017",
+  "where": "Cracow",
+  "anotherInfo":"bleble",
+  "prefferedSex" :"female",
+  "prefferedAge":"20-30"
 }

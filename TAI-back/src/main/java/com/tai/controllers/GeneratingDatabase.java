@@ -42,9 +42,6 @@ public class GeneratingDatabase {
 
         generateMockData();
 
-
-
-        //dokument dla subjectu
         Random r = new Random();
         int tmp;
 

@@ -1,6 +1,7 @@
 package com.tai.repository;
 
 import com.tai.model.Offer;
+import com.tai.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Date;
@@ -26,5 +27,16 @@ public interface OfferRepository extends CrudRepository<Offer, String> {
 
     List<Offer> findByWhen(Date when);
 
+    Offer findOneByPrefferedSex(String sex);
+
+    List<Offer> findByPrefferedSex(String sex);
+
+    Offer findOneByPrefferedAge(String age);
+
+    List<Offer> findByPreffereAge(String age);
+
+    Offer findOneByUser(User user);
+
+    List<Offer> findByUser(User user);
 
 }

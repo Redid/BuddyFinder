@@ -74,7 +74,7 @@ public class DataGenerator {
         String type = typesA[i%(this.typesA.length)];
         i = Math.abs(rn.nextInt());
         String place = placesA[i%(this.placesA.length)];
-        String aI = "dodatkowe infro, poki co puste";
+        String aI = "dodatkowe info, poki co puste";
         long ms = -946771200000L + (Math.abs(rn.nextLong()) % (70L * 365 * 24 * 60 * 60 * 1000));
         Date dt = new Date(ms);
         offer.setAnotherInfo(aI);
