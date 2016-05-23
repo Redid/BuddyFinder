@@ -20,7 +20,6 @@ public class User extends AbstractModel {
         this.setPassword(password);
         this.setLogin(login);
         this.setEmail(email);
-
     }
 
     public String getLogin() {
@@ -38,7 +37,6 @@ public class User extends AbstractModel {
     public void setPassword(String password) {
         this.password = password;
     }
-
 
     public String getLastName() {
         return lastName;
@@ -63,6 +61,5 @@ public class User extends AbstractModel {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
 }

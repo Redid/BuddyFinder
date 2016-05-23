@@ -1,12 +1,16 @@
 package com.tai.controllers;
 
+import com.tai.model.Offer;
 import com.tai.repository.OfferRepository;
 import com.tai.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class OfferController {
@@ -19,14 +23,16 @@ public class OfferController {
 
     @RequestMapping(value = "/offers/list", method = RequestMethod.GET)
     @ResponseBody
-    public Object list() {
-        return 0;
+    public List<Offer> list() {
+        List<Offer> offers = new ArrayList<>();
+        offerRepository.findAll().forEach(offer -> offers.add(offer));
+        return offers;
     }
 
     @RequestMapping(value = "/offers/{offerId}", method = RequestMethod.GET)
     @ResponseBody
-    public Object offer() {
-        return 0;
+    public Offer offer(@PathVariable("offerId") String offerId) {
+        return offerRepository.findOne(offerId);
     }
 
     @RequestMapping(value = "/offers/{offerId}/edit", method = RequestMethod.PUT)
@@ -43,7 +49,17 @@ public class OfferController {
 
     @RequestMapping(value = "/offers/{offerId}/add", method = RequestMethod.POST)
     @ResponseBody
-    public Object add() {
-        return 0;
+    public ResponseEntity<String> add(@PathVariable("offerId") String offerId, @RequestBody Offer offer) {
+        HttpStatus httpStatus = HttpStatus.FOUND;
+        String entityMsg = "OfferID already in database";
+
+        if(offerRepository.findOne(offerId) != null){
+            httpStatus = HttpStatus.ACCEPTED;
+            entityMsg = "Add offer was accepted, but not added";
+
+
+        }
+
+        return new ResponseEntity<String>(entityMsg, httpStatus);
     }
 }
