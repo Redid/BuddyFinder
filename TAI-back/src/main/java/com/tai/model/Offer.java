@@ -17,6 +17,7 @@ public class Offer  extends AbstractModel {
     private String type;
     @DBRef
     private User user;
+    @DBRef
     private List<Timer> when;
     private String where;
     private String anotherInfo;

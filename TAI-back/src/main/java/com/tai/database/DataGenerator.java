@@ -1,12 +1,16 @@
 package com.tai.database;
 
 import com.tai.model.Offer;
+import com.tai.model.Timer;
 import com.tai.model.User;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by izabella on 23.04.16.
@@ -15,6 +19,7 @@ public class DataGenerator {
 
     private List<User> usersList = new ArrayList<User>();
     private List<Offer> offersList =  new ArrayList<Offer>();
+    private List<Timer> timersList =  new ArrayList<Timer>();
 
     public DataGenerator(){
 
@@ -46,6 +51,20 @@ public class DataGenerator {
     private String[] placesA = {
             "Kraków", "Zakopane", "Las Vegas", "New York", "Rome", "Alicante", "Kijów", "Berlin", "Bleble", "San Jose", "Siem Reap", "Limon"
     };
+
+    public Timer generateTimer(){
+        Random rn = new Random();
+        long ms = -946771200000L + (Math.abs(rn.nextLong()) % (70L * 365 * 24 * 60 * 60 * 1000));
+        long minDay = LocalDate.of(1970, 1, 1).toEpochDay();
+        long maxDay = LocalDate.of(2015, 12, 31).toEpochDay();
+        long randomDay = ThreadLocalRandom.current().nextLong(minDay, maxDay);
+        LocalDate randomDate = LocalDate.ofEpochDay(randomDay);
+        Random generator = new Random(System.currentTimeMillis());
+        LocalTime time = LocalTime.MIN.plusSeconds(generator.nextLong());
+
+        Timer timer = new Timer(randomDate,time,time);
+        return timer;
+    }
     //studnet
     public User generateUser(){
 
@@ -75,24 +94,24 @@ public class DataGenerator {
         i = Math.abs(rn.nextInt());
         String place = placesA[i%(this.placesA.length)];
         String aI = "dodatkowe info, poki co puste";
-        long ms = -946771200000L + (Math.abs(rn.nextLong()) % (70L * 365 * 24 * 60 * 60 * 1000));
-        Date dt = new Date(ms);
         offer.setAnotherInfo(aI);
         offer.setType(type);
-        offer.setWhen(dt);
+        //offer.addWhen(timer);
         offer.setWhere(place);
         return offer;
     }
 
 
     public void generate(){
+        for (int i = 0; i < 10; i = i + 1){
+            this.timersList.add(generateTimer());
+        }
         for (int i = 0; i < 30; i = i + 1){
             this.usersList.add(generateUser());
             this.offersList.add(generateOffer());
         }
 
     }
-
 
     public List<User> getUsersList() {
         return usersList;
@@ -105,6 +124,12 @@ public class DataGenerator {
     }
     public void setOffersList(List<Offer> offersList) {
         this.offersList = offersList;
+    }
+    public List<Timer> getTimersList() {
+        return timersList;
+    }
+    public void setTimersList(List<Timer> timersList) {
+        this.timersList = timersList;
     }
 
 }

@@ -5,6 +5,7 @@ import com.tai.model.Offer;
 import com.tai.model.Timer;
 import com.tai.model.User;
 import com.tai.repository.OfferRepository;
+import com.tai.repository.TimerRepository;
 import com.tai.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,16 +27,20 @@ public class GeneratingDatabase {
     @Autowired
     OfferRepository offerRepository;
 
+    @Autowired
+    TimerRepository timerRepository;
+
 
     private List<User> usersList = new ArrayList<User>();
     private List<Offer> offersList = new ArrayList<Offer>();
+    private List<Timer> timersList = new ArrayList<Timer>();
 
     public void generateMockData() {
         DataGenerator d = new DataGenerator();
         d.generate();
-        System.out.println("JezusMaria");
         this.usersList.addAll(d.getUsersList());
         this.offersList.addAll(d.getOffersList());
+        this.timersList.addAll(d.getTimersList());
     }
 
     public void generateDatabaseCollections() {
@@ -44,7 +49,14 @@ public class GeneratingDatabase {
 
         Random r = new Random();
         int tmp;
+        //dokument dla timera
+        for (int i = 0; i < timersList.size(); i = i + 1){
+            timersList.get(i).setDate(timersList.get(i).getDate());
+            timersList.get(i).setFrom(timersList.get(i).getFrom());
+            timersList.get(i).setTo(timersList.get(i).getTo());
+            timerRepository.save(timersList.get(i));
 
+        }
         //dokument dla studenta
         for (int i = 0; i < usersList.size(); i = i + 1) {
             usersList.get(i).setEmail(usersList.get(i).getEmail());
