@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 
 @Configuration
-@EnableMongoRepositories(basePackages = "com.tai.repository")
+@EnableMongoRepositories(basePackages = {"com.tai.repository","com.tai.model","com.tai.database"})
 public class DataBaseConfig extends AbstractMongoConfiguration {
 
     @Override

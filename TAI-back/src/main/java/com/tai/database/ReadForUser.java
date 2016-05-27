@@ -1,5 +1,6 @@
 package com.tai.database;
 
+import com.tai.model.User;
 import com.tai.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;

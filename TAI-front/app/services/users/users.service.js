@@ -1,8 +1,8 @@
 class UserService {
     /*@ngInject*/
-    constructor($http, termityServerUrl, AuthorizationToken) {
+    constructor($http, buddyServerUrl, AuthorizationToken) {
         this.$http = $http;
-        this.baseUrl = termityServerUrl;
+        this.baseUrl = buddyServerUrl;
         this.userSessionData = {
             'userId' : '',
             'token' : AuthorizationToken.NO_AUTH

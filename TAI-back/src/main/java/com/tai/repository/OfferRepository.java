@@ -1,6 +1,7 @@
 package com.tai.repository;
 
 import com.tai.model.Offer;
+import com.tai.model.Timer;
 import com.tai.model.User;
 import org.springframework.data.repository.CrudRepository;
 
@@ -23,17 +24,17 @@ public interface OfferRepository extends CrudRepository<Offer, String> {
 
     List<Offer> findByWhere(String where);
 
-    Offer findOneByWhen(Date when);
+    Offer findOneByWhen(Timer timer);
 
-    List<Offer> findByWhen(Date when);
+    List<Offer> findByWhen(Timer timer);
 
-    Offer findOneByPrefferedSex(String sex);
+    Offer findOneByPreferredSex(String sex);
 
-    List<Offer> findByPrefferedSex(String sex);
+    List<Offer> findByPreferredSex(String sex);
 
-    Offer findOneByPrefferedAge(String age);
+    Offer findOneByPreferredAge(String age);
 
-    List<Offer> findByPreffereAge(String age);
+    List<Offer> findByPreferredAge(String age);
 
     Offer findOneByUser(User user);
 
