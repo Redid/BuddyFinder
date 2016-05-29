@@ -7,7 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Created by izabella on 23.04.16.
  */
 @Document(collection = "User")
-public class User extends AbstractModel {
+public class
+User extends AbstractModel {
     private String login;
     private String password;
     private String lastName;

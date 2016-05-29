@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Document(collection = "Timer")
-public class Timer {
+public class Timer extends AbstractModel {
     private LocalDate date;
     private LocalTime from;
     private LocalTime to;
