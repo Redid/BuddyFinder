@@ -54,4 +54,7 @@ public class ReadForOffer {
 	public List<Offer> searchAllByUser(User user){ return  offerRepository.findByUser(user);}
 	public Offer searchOneByUser(User user){return  offerRepository.findOneByUser(user);}
 
+	public void deleteOffer(String offerID){
+		offerRepository.delete(offerID);
+	}
 }
