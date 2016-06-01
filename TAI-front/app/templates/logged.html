@@ -11,14 +11,13 @@
 <div class="col-md-1" >
     <img src="./assets/tmp.png" id="a3" class="img-responsive">
 </div>
-
 <div class="col-md-3" id="one">
     <img src="./assets/d.png" id="logo-home" class="img-responsive">
     <div id="data2">
-        <p id="name">Izabella</p>
-        <p id="surname">Szlosarczyk</p>
-        <p id="email">iza.bella@gmail.com</p>
-        <p id="login2">bella124</p>
+        <p id="name">{{loggedCtrl.user.firstName}}</p>
+        <p id="surname">{{loggedCtrl.user.lastName}}</p>
+        <p id="email">{{loggedCtrl.user.email}}</p>
+        <p id="login2">{{loggedCtrl.user.login}}</p>
         <a href="#" class="btn btn-success" id="b1">Update/Edit/Add your info!</a>
     </div>
 </div>

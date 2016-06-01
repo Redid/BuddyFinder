@@ -1,5 +1,6 @@
 package com.tai.controller.response;
 
+import com.tai.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -8,4 +9,5 @@ import lombok.Data;
 public class LoginResponse {
     private String userID;
     private String token;
+    private User user;
 }

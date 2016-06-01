@@ -20,7 +20,7 @@ export default app => {
             })
             .state('logged', {
                 url: '/logged',
-                templateUrl: 'templates/logged.html'
+                template: '<t-logged></t-logged>'
             })
             .state('logged.yourOffer', {
                 url: '/yourOffer',

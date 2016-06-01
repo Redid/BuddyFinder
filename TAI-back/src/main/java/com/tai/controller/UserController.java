@@ -33,7 +33,7 @@ public class UserController {
         }
         else{
             if(loggingUser.getPassword().equals(loginRequest.getPassword())){
-                loginResponse = new LoginResponse(loggingUser.getId(), "test_token"); //TODO: token from session
+                loginResponse = new LoginResponse(loggingUser.getId(), "test_token", loggingUser); //TODO: token from session
             }
             else{
                 throw new AuthenticationException("Wrong login/password");

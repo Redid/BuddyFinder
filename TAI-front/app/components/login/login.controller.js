@@ -13,11 +13,11 @@ export default class LoginController {
       password: this.password
     };
     this.usersService.login(data).then(function successCallback(response) {
-      console.log("good!");
-      this.$state.go('logged');
       this.usersService.setUserSessionData(response.data);
       this.token = response.data.token;
       console.log(this.usersService.getUserSessionData());
+      console.log("good!");
+      this.$state.go('logged');
     }.bind(this), function errorCallback(response) {
       this.token = response.data.token;
       console.log(response.data)
