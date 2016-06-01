@@ -3,6 +3,8 @@ package com.tai.controller;
 import com.tai.controller.exception.AuthenticationException;
 import com.tai.controller.exception.LoginNotUniqueException;
 import com.tai.controller.exception.UserNotFoundException;
+import com.tai.controller.request.EditUserRequest;
+import com.tai.controller.request.LogoutRequest;
 import com.tai.controller.response.LoginResponse;
 import com.tai.controller.response.UserInformationResponse;
 import com.tai.repository.OfferRepository;
@@ -41,12 +43,12 @@ public class UserController {
         return loginResponse;
     }
 
-    @RequestMapping(value = "logout", method = RequestMethod.GET)
-    public void logout() {
-
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public void logout(@RequestBody LogoutRequest logoutRequest) {
+        //TODO: logout using token
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @RequestMapping(value = "/users/new", method = RequestMethod.POST)
     public void register(@RequestBody RegisterRequest registerRequest) {
         if(readForUser.searchOneByLogin(registerRequest.getLogin()) != null){
             throw new LoginNotUniqueException();
@@ -70,5 +72,10 @@ public class UserController {
             throw new UserNotFoundException(login);
         }
         return userInformationResponse;
+    }
+
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public void editUserInformation(@RequestBody EditUserRequest editUserRequest){
+        //TODO: Look for user using token
     }
 }

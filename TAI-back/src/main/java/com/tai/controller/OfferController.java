@@ -1,16 +1,16 @@
 package com.tai.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tai.controller.exception.OfferNotFoundException;
+import com.tai.controller.request.AddNewOfferRequest;
+import com.tai.controller.request.EditOfferRequest;
+import com.tai.controller.response.OfferListResponse;
+import com.tai.model.Offer;
+import com.tai.model.User;
 import com.tai.service.ReadForOffer;
 import com.tai.service.ReadForUser;
-import com.tai.model.Offer;
-import com.tai.controller.request.EditOfferRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,85 +25,57 @@ public class OfferController {
     ReadForOffer readForOffer;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public List<Offer> list() {
+    public OfferListResponse list() {
         List<Offer> offers = new ArrayList<>();
         readForOffer.searchAll().forEach(offers::add);
-        return offers;
+        return new OfferListResponse(offers, offers.size());
     }
 
     @RequestMapping(value = "/{offerId}", method = RequestMethod.GET)
-    public ResponseEntity<Offer> handleOffer(@PathVariable("offerId") String offerId) {
-        HttpStatus httpStatus = HttpStatus.NOT_FOUND;
+    public Offer handleOffer(@PathVariable("offerId") String offerId) {
         Offer offer = readForOffer.searchById(offerId);
-        if(offer != null){
-            httpStatus = HttpStatus.FOUND;
+        if(offer == null){
+            throw new OfferNotFoundException();
         }
 
-        return new ResponseEntity<>(offer, httpStatus);
+        return offer;
     }
 
     @RequestMapping(value = "/{offerId}/edit", method = RequestMethod.PUT)
-    public ResponseEntity<String> edit(@PathVariable("offerID") String offerID, @RequestBody String editOfferRequest) {
-        HttpStatus httpStatus = HttpStatus.NOT_FOUND;
-        String entityMsg = "Offer with this ID not found";
-
-        try {
-            Offer offerToEdit = readForOffer.searchById(offerID);
-            if(offerToEdit != null){
-                EditOfferRequest newOffer = new ObjectMapper().readValue(editOfferRequest, EditOfferRequest.class);
-                offerToEdit.setPreferredSex(newOffer.getPreferredSex());
-                offerToEdit.setPreferredAge(newOffer.getPreferredAge());
-                offerToEdit.setAnotherInfo(newOffer.getAnotherInfo());
-                offerToEdit.setWhere(newOffer.getWhere());
-                offerToEdit.setWhen(newOffer.getWhen());
-
-                httpStatus = HttpStatus.OK;
-                entityMsg = "Offer found and edited";
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void edit(@PathVariable("offerID") String offerID, @RequestBody EditOfferRequest editOfferRequest) {
+        Offer offerToEdit = readForOffer.searchById(offerID);
+        if(offerToEdit != null){
+            offerToEdit.setPreferredSex(editOfferRequest.getPreferredSex());
+            offerToEdit.setPreferredAge(editOfferRequest.getPreferredAge());
+            offerToEdit.setAnotherInfo(editOfferRequest.getAnotherInfo());
+            offerToEdit.setWhere(editOfferRequest.getWhere());
+            offerToEdit.setWhen(editOfferRequest.getWhen());
         }
-
-        return new ResponseEntity<String>(entityMsg, httpStatus);
+        else{
+            throw new OfferNotFoundException();
+        }
     }
 
-    @RequestMapping(value = "/{offerId}/remove", method = RequestMethod.DELETE)
-    public ResponseEntity<String> remove(@PathVariable("offerID") String offerID) {
-        HttpStatus httpStatus = HttpStatus.NOT_FOUND;
-        String entityMsg = "Offer with this ID not found";
-
+    @RequestMapping(value = "/{offerId}", method = RequestMethod.DELETE)
+    public void remove(@PathVariable("offerID") String offerID) {
         if(readForOffer.searchById(offerID) != null){
-//            readForOffer.(offerID); TODO: deleting
-            httpStatus = HttpStatus.OK;
-            entityMsg = "Offer successfully removed";
+            readForOffer.deleteOffer(offerID);
         }
-
-        return new ResponseEntity<String>(entityMsg, httpStatus);
+        else{
+            throw new OfferNotFoundException();
+        }
     }
 
-    @RequestMapping(value = "/{offerId}/add", method = RequestMethod.POST)
-    public ResponseEntity<String> add(@PathVariable("offerId") String offerId, @RequestBody String jsonOffer) {
-        HttpStatus httpStatus = HttpStatus.FOUND;
-        String entityMsg = "OfferID already in database";
-        try {
-            if(readForOffer.searchById(offerId) != null){
-                EditOfferRequest offerRequest = new ObjectMapper().readValue(jsonOffer, EditOfferRequest.class);
-                Offer newOffer = new Offer();
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public void add(@RequestBody AddNewOfferRequest addNewOfferRequest) {
+        Offer newOffer = new Offer();
 
-                //TODO: User set
-                newOffer.setPreferredSex(offerRequest.getPreferredSex());
-                newOffer.setPreferredAge(offerRequest.getPreferredAge());
-                newOffer.setAnotherInfo(offerRequest.getAnotherInfo());
-                newOffer.setWhere(offerRequest.getWhere());
-                newOffer.setWhen(offerRequest.getWhen());
-
-                httpStatus = HttpStatus.ACCEPTED;
-            }
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-
-        return new ResponseEntity<String>(entityMsg, httpStatus);
+        User owner = readForUser.searchOneByLogin(addNewOfferRequest.getUser());
+        newOffer.setUser(owner);
+        newOffer.setPreferredSex(addNewOfferRequest.getPreferredSex());
+        newOffer.setPreferredAge(addNewOfferRequest.getPreferredAge());
+        newOffer.setAnotherInfo(addNewOfferRequest.getAnotherInfo());
+        newOffer.setWhere(addNewOfferRequest.getWhere());
+        newOffer.setWhen(addNewOfferRequest.getWhen());
     }
 }

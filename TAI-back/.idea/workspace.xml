@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f52f89dd-635f-499a-b64f-9d9c469b7507" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/exception/OfferNotFoundException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/request/AddNewOfferRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/request/LogoutRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/response/OfferListResponse.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tai/controller/OfferController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/OfferController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tai/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tai/controller/request/EditOfferRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/request/EditOfferRequest.java" />
     </list>
     <list id="ae69a603-e956-4a2f-add5-73bd66277635" name="Rejected commit: Default" comment="Controllers for Iza :P&#10;With communication" />
     <ignored path="buddy-finder.iws" />
@@ -795,7 +790,7 @@
       <workItem from="1464706461880" duration="492000" />
       <workItem from="1464707151862" duration="12245000" />
       <workItem from="1464733104449" duration="3228000" />
-      <workItem from="1464782114117" duration="9230000" />
+      <workItem from="1464782114117" duration="9274000" />
     </task>
     <task id="LOCAL-00001" summary="Controllers for Iza :P&#10;With communication">
       <created>1464791004110</created>
@@ -809,11 +804,17 @@
       <option name="project" value="LOCAL" />
       <updated>1464796466088</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="New communication elements">
+      <created>1464796517951</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1464796517951</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72711000" />
+    <option name="totallyTimeSpent" value="72755000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -890,9 +891,11 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <MESSAGE value="Controllers for Iza :P&#10;With communication" />
     <MESSAGE value="Added deleting offer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added deleting offer" />
+    <MESSAGE value="New communication elements" />
+    <option name="LAST_COMMIT_MESSAGE" value="New communication elements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
