@@ -6,8 +6,9 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class EditOfferRequest {
+public class AddNewOfferRequest {
     private String token;
+    private String user;
     private List<Timer> when;
     private String where;
     private String anotherInfo;

@@ -10,7 +10,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tai/controller/OfferController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/OfferController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tai/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tai/controller/request/EditOfferRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/request/EditOfferRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tai/service/ReadForOffer.java" afterPath="$PROJECT_DIR$/src/main/java/com/tai/service/ReadForOffer.java" />
     </list>
     <list id="ae69a603-e956-4a2f-add5-73bd66277635" name="Rejected commit: Default" comment="Controllers for Iza :P&#10;With communication" />
     <ignored path="buddy-finder.iws" />
@@ -796,7 +795,7 @@
       <workItem from="1464706461880" duration="492000" />
       <workItem from="1464707151862" duration="12245000" />
       <workItem from="1464733104449" duration="3228000" />
-      <workItem from="1464782114117" duration="9179000" />
+      <workItem from="1464782114117" duration="9230000" />
     </task>
     <task id="LOCAL-00001" summary="Controllers for Iza :P&#10;With communication">
       <created>1464791004110</created>
@@ -804,11 +803,17 @@
       <option name="project" value="LOCAL" />
       <updated>1464791004110</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added deleting offer">
+      <created>1464796466088</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1464796466088</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72660000" />
+    <option name="totallyTimeSpent" value="72711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -886,7 +891,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Controllers for Iza :P&#10;With communication" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controllers for Iza :P&#10;With communication" />
+    <MESSAGE value="Added deleting offer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added deleting offer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
