@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f52f89dd-635f-499a-b64f-9d9c469b7507" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tai/controller/OfferController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/OfferController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tai/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/tai/controller/exception/OfferNotFoundException.java" afterPath="$PROJECT_DIR$/src/main/java/com/tai/controller/exception/OfferNotFoundException.java" />
     </list>
     <list id="ae69a603-e956-4a2f-add5-73bd66277635" name="Rejected commit: Default" comment="Controllers for Iza :P&#10;With communication" />
     <ignored path="buddy-finder.iws" />
@@ -83,12 +82,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataGenerator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tai/service/DataGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OfferNotFoundException.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tai/controller/exception/OfferNotFoundException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.14554794">
+              <caret line="5" column="71" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -176,10 +187,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tai/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tai/controller/response/OfferListResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tai/controller/response/OfferResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tai/controller/exception/OfferNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tai/controller/request/AddNewOfferRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tai/service/ReadForOffer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tai/controller/OfferController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tai/controller/exception/OfferNotFoundException.java" />
       </list>
     </option>
   </component>
@@ -790,7 +801,7 @@
       <workItem from="1464706461880" duration="492000" />
       <workItem from="1464707151862" duration="12245000" />
       <workItem from="1464733104449" duration="3228000" />
-      <workItem from="1464782114117" duration="9274000" />
+      <workItem from="1464782114117" duration="9384000" />
     </task>
     <task id="LOCAL-00001" summary="Controllers for Iza :P&#10;With communication">
       <created>1464791004110</created>
@@ -810,11 +821,17 @@
       <option name="project" value="LOCAL" />
       <updated>1464796517951</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added functionality to controllers">
+      <created>1464796550173</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1464796550173</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72755000" />
+    <option name="totallyTimeSpent" value="72865000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -895,7 +912,8 @@
     <MESSAGE value="Controllers for Iza :P&#10;With communication" />
     <MESSAGE value="Added deleting offer" />
     <MESSAGE value="New communication elements" />
-    <option name="LAST_COMMIT_MESSAGE" value="New communication elements" />
+    <MESSAGE value="Added functionality to controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality to controllers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1215,14 +1233,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tai/controller/exception/OfferNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05821918">
-          <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tai/controller/request/AddNewOfferRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1317,6 +1327,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tai/controller/exception/OfferNotFoundException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14554794">
+          <caret line="5" column="71" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
