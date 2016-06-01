@@ -1,8 +1,7 @@
-package com.tai.database;
+package com.tai.service;
 
 import com.tai.model.Timer;
 import com.tai.repository.TimerRepository;
-import com.tai.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 

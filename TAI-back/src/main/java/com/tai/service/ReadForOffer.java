@@ -1,7 +1,5 @@
-package com.tai.database;
+package com.tai.service;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.tai.model.Offer;
@@ -10,8 +8,6 @@ import com.tai.model.User;
 import com.tai.repository.OfferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
 @Component

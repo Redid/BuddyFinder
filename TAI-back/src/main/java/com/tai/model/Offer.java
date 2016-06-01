@@ -1,12 +1,10 @@
 package com.tai.model;
 
-import com.tai.database.AbstractModel;
-import com.tai.model.User;
+import com.tai.service.AbstractModel;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,6 +33,8 @@ public class Offer  extends AbstractModel {
     public void addWhen(Timer when){
         this.when.add(when);
     }
+
+    public void setWhen(List<Timer> when) { this.when = when; }
 
     public String getWhere() {
         return where;

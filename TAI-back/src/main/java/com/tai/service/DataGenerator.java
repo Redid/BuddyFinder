@@ -1,4 +1,4 @@
-package com.tai.database;
+package com.tai.service;
 
 import com.tai.model.Offer;
 import com.tai.model.Timer;
@@ -7,7 +7,6 @@ import com.tai.model.User;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;

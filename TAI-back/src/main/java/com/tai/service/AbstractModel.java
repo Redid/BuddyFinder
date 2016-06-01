@@ -1,4 +1,4 @@
-package com.tai.database;
+package com.tai.service;
 
 import org.springframework.data.annotation.Id;
 

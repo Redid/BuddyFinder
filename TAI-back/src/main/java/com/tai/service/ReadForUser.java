@@ -1,4 +1,4 @@
-package com.tai.database;
+package com.tai.service;
 
 import com.tai.model.User;
 import com.tai.repository.UserRepository;
@@ -30,4 +30,6 @@ public class ReadForUser {
 
     public User searchOneByLogin(String login){ return userRepository.findOneByLogin(login);}
     public User searchOneByEmail(String email){ return userRepository.findOneByEmail(email);}
+
+    public void save(User user){ userRepository.save(user); }
 }

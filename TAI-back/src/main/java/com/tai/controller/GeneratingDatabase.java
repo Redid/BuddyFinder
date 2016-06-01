@@ -1,6 +1,6 @@
-package com.tai.controllers;
+package com.tai.controller;
 
-import com.tai.database.DataGenerator;
+import com.tai.service.DataGenerator;
 import com.tai.model.Offer;
 import com.tai.model.Timer;
 import com.tai.model.User;
