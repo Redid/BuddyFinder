@@ -4,6 +4,7 @@ import com.tai.model.Timer;
 import com.tai.repository.TimerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -12,6 +13,7 @@ import java.util.List;
 /**
  * Created by izabella on 25.05.16.
  */
+@Component
 public class ReadForTimer {
     @Autowired
     MongoTemplate mongoTemplate;

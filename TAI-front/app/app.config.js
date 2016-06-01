@@ -1,6 +1,6 @@
 export default app => {
   app.config([configFn]);
-  app.constant('termityServerUrl', 'http://localhost:3333');
+  app.constant('buddyServerUrl', 'http://localhost:8080');
   app.constant('AuthorizationToken', {
     'ADMIN' : 'ADMIN',
     'USER' : 'USER',

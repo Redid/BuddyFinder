@@ -4,12 +4,14 @@ import com.tai.model.User;
 import com.tai.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * Created by izabella on 19.05.16.
  */
+@Component
 public class ReadForUser {
     @Autowired
     MongoTemplate mongoTemplate;

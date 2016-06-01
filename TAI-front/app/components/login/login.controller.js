@@ -1,7 +1,7 @@
 export default class LoginController {
   constructor(usersService, $state) {
     this.usersService = usersService;
-    this.email = '';
+    this.username = '';
     this.password = '';
     this.$state = $state;
     this.token = '';
@@ -9,10 +9,11 @@ export default class LoginController {
 
   login() {
     let data = {
-      email: this.email,
+      login: this.username,
       password: this.password
     };
     this.usersService.login(data).then(function successCallback(response) {
+      console.log("good!");
       this.$state.go('logged');
       this.usersService.setUserSessionData(response.data);
       this.token = response.data.token;

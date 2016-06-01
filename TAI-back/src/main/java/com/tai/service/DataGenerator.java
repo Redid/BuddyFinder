@@ -84,6 +84,17 @@ public class DataGenerator {
         return user;
     }
 
+    //mock
+    public User mock(){
+        User mock = new User();
+        mock.setLogin("aaa");
+        mock.setLastName("b");
+        mock.setFirstName("a");
+        mock.setEmail("a@op.pl");
+        mock.setPassword("aaa");
+        return mock;
+    }
+
     //oferta
     public Offer generateOffer(){
         Offer offer = new Offer();
@@ -109,6 +120,8 @@ public class DataGenerator {
             this.usersList.add(generateUser());
             this.offersList.add(generateOffer());
         }
+
+        this.usersList.add(mock());
 
     }
 
