@@ -1,4 +1,4 @@
-// Imports will go here to import other component's style. 
+// Imports will go here to import other component's style.
 // This allows for sharing of global variables.
 @import 'bourbon';
 @import "./vendor/bootstrap-3.3.6-dist/css/bootstrap.min.css";
@@ -61,4 +61,8 @@ html, body {
 @import "templates/app/yourOffer";
 @import "templates/app/newOffer";
 @import "templates/app/editOffer";
+@import "templates/app/privacy";
+@import "templates/app/policy";
+@import "templates/app/choices";
+@import "templates/app/cookies";
 @import "./main.scss";

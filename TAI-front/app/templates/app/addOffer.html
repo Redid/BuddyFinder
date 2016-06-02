@@ -1,6 +1,5 @@
 <div class="col-md-12">
-    <h1></h1>
-    <h2  id="h21"> Your buddy is waiting.... </h2>
+    <h1 id="artificial">-</h1>
     <form class="form-horizontal" id="informacje2">
         <fieldset>
             <div class="form-group">
@@ -12,6 +11,21 @@
                         <option>Party-Mate</option>
                         <option>Custom</option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="where" class="col-xs-4 control-label"id="labelPlace">Choose place*</label>
+                    <div class="col-xs-3">
+                        <input type="text" id="where" class="form-control" id="where" placeholder="where">
+                    </div>
+                    <div class="col-xs-3">
+                        <button type="submit" class="btn btn-success" id="button2">Find    place</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAdd" class="col-xs-4 control-label" id="labelAdd">Additional info</label>
+                    <div class="col-xs-6">
+                        <input type="text" id="tmp" class="form-control" id="inputAdd" placeholder="another info">
+                    </div>
                 </div>
                 <label for="selectAgeMin" class="col-xs-4 control-label" id="labelAge">Preffered age</label>
                 <div class="col-xs-3">
@@ -27,9 +41,8 @@
                         <option>53</option>
                     </select>
                 </div>
-                <p>-</p>
                 <div class="col-xs-3">
-                    <select class="form-control" id="selectAgeMax">
+                    <select class="form-control" id="selectAgeMin">
                         <option>18</option>
                         <option>19</option>
                         <option>20</option>
@@ -41,30 +54,52 @@
                         <option>53</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="where" class="col-xs-4 control-label"id="labelPlace">Choose place*</label>
-                    <div class="col-xs-3">
-                        <input type="text" id="where" class="form-control" id="where" placeholder="where">
-                    </div>
-                    <div class="col-xs-3">
-                        <button type="submit" class="btn btn-success" id="button2">Find place</button>
-                    </div>
+                <label for="selectAgeMin" class="col-xs-4 control-label" id="labelDate">Preffered time</label>
+                <div class="col-xs-2">
+                    <select class="form-control" id="selectDay">
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>33</option>
+                        <option>43</option>
+                        <option>53</option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="inputAdd" class="col-xs-4 control-label" id="labelAdd">Additional info</label>
-                    <div class="col-xs-6">
-                        <input type="text" id="tmp" class="form-control" id="inputAdd" placeholder="another info">
-                    </div>
+                <div class="col-xs-2">
+                    <select class="form-control" id="selectMonth">
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>33</option>
+                        <option>43</option>
+                        <option>53</option>
+                    </select>
                 </div>
-                <div>
-                    <p id="informacje">dodać jeszcze kiedy</p>
+                <div class="col-xs-2">
+                    <select class="form-control" id="selectYear">
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>33</option>
+                        <option>43</option>
+                        <option>53</option>
+                    </select>
                 </div>
+
             </div>
         </fieldset>
     </form>
-
     <div class="col-xs-12" >
         <button type="submit" class="btn btn-success" id="button1">Add offer</button>
-        <img src="./assets/ab.png" id="ab" class="img-responsive">
+        <button type="submit" class="btn btn-success" id="button123"><a href=#/logged>Back</a></button>
     </div>
 </div>

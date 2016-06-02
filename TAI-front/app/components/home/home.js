@@ -9,6 +9,22 @@ export default app => {
                 url: '/',
                 templateUrl: 'templates/home.html'
             })
+            .state('policy', {
+                url: '/policy',
+                templateUrl: 'templates/app/policy.html'
+            })
+            .state('privacy', {
+                url: '/privacy',
+                templateUrl: 'templates/app/privacy.html'
+            })
+            .state('choices', {
+                url: '/choices',
+                templateUrl: 'templates/app/choices.html'
+            })
+            .state('cookies', {
+                url: '/cookies',
+                templateUrl: 'templates/app/cookies.html'
+            })
             .state('login', {
                 url: '/login',
                 template: '<t-login></t-login>'
@@ -21,6 +37,22 @@ export default app => {
             .state('logged', {
                 url: '/logged',
                 template: '<t-logged></t-logged>'
+            })
+            .state('logged.policy', {
+                url: '/policy',
+                templateUrl: 'templates/app/policy.html'
+            })
+            .state('logged.privacy', {
+                url: '/privacy',
+                templateUrl: 'templates/app/privacy.html'
+            })
+            .state('logged.choices', {
+                url: '/choices',
+                templateUrl: 'templates/app/choices.html'
+            })
+            .state('logged.cookies', {
+                url: '/cookies',
+                templateUrl: 'templates/app/cookies.html'
             })
             .state('logged.yourOffer', {
                 url: '/yourOffer',

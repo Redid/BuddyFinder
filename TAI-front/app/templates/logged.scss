@@ -29,12 +29,12 @@ h2 {
 }
 
 a.menu-label{
-  background-color: #436C50;
+  background-color: #4B4B4B;
   text-align: center;
   margin-left: 100px;
   margin-right: 100px;
   color: #FFFFFF;
-  border-color: #436C50;
+  border-color: #4B4B4B;
   box-shadow: inset 0 1px 2px  0 rgba(0,0,0,0.4);
 }
 
@@ -67,6 +67,11 @@ a.menu-label{
   box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
   box-shadow: inset 0 1px 2px  0 rgba(0,0,0,0.4);
 }
+#fot, #for:hover, #fot:link{
+  color: rgba(0,0,0,0.2);
+  text-align: center;
+}
+
 
 #b1{
   margin-top: 20px;

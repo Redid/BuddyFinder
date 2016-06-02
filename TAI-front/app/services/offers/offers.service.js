@@ -1,8 +1,8 @@
 class OffersService {
     /*@ngInject*/
-    constructor($http, termityServerUrl) {
+    constructor($http, buddyyServerUrl) {
         this.$http = $http;
-        this.baseUrl = termityServerUrl;
+        this.baseUrl = buddyServerUrl;
 
     }
 
