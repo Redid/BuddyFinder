@@ -7,7 +7,6 @@ import java.util.List;
 
 @Data
 public class AddNewOfferRequest {
-    private String token;
     private String user;
     private List<Timer> when;
     private String where;
