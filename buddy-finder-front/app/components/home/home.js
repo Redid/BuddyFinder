@@ -64,7 +64,7 @@ export default app => {
             })
             .state('logged.viewOffer', {
                 url: '/viewOffer',
-                templateUrl: 'templates/app/viewOffer.html'
+                template: '<t-offers-view></t-offers-view>'
             })
             .state('logged.editOffer', {
                 url: '/editOffer',

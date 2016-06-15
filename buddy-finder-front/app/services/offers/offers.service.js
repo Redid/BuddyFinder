@@ -1,6 +1,6 @@
 class OffersService {
     /*@ngInject*/
-    constructor($http, buddyyServerUrl) {
+    constructor($http, buddyServerUrl) {
         this.$http = $http;
         this.baseUrl = buddyServerUrl;
 
@@ -24,7 +24,7 @@ class OffersService {
     }
     getOffers() {
         return this.$http({
-            url: this.getUrl(`offers`),
+            url: this.getUrl(`offers/list`),
             method: "GET"
         });
     }

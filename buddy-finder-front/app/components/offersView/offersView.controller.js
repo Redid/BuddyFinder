@@ -1,19 +1,22 @@
 
 export default class OffersViewController {
-    constructor(offersService, usersService) {
+    constructor(offersService, usersService, $state) {
         this.offersService = offersService;
         this.usersService = usersService;
         this.$state = $state;
-        this.offersList = this.getOffersList();
+        this.offersList = [];
+    }
+
+    init() {
+        this.getOffersList();
     }
 
     getOffersList() {
-        var result = [];
         this.offersService.getOffers()
             .then(successResponse => {
-                result = successResponse.data;
+                console.log(successResponse);
+                this.offersList = successResponse.data.offers;
             });
-        return result;
     }
 
 }
