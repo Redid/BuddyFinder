@@ -3,15 +3,14 @@ package com.tai.repository;
 import com.tai.model.Offer;
 import com.tai.model.Timer;
 import com.tai.model.User;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-import java.util.Date;
 import java.util.List;
 
 /**
  * Created by izabella on 23.04.16.
  */
-public interface OfferRepository extends CrudRepository<Offer, String> {
+public interface OfferRepository extends MongoRepository<Offer, String> {
     Offer findOneByType(String type);
 
     List<Offer> findByType(String type);

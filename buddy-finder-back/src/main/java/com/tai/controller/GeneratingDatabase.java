@@ -1,12 +1,12 @@
 package com.tai.controller;
 
-import com.tai.service.DataGenerator;
 import com.tai.model.Offer;
 import com.tai.model.Timer;
 import com.tai.model.User;
 import com.tai.repository.OfferRepository;
 import com.tai.repository.TimerRepository;
 import com.tai.repository.UserRepository;
+import com.tai.service.DataGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

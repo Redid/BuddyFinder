@@ -3,7 +3,7 @@ package com.tai.controller.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "User with given username doesn't exist")
+@ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "User with given login doesn't exist")
 public class UserNotFoundException extends RuntimeException {
 
     private String username;

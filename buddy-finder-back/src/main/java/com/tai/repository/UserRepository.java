@@ -1,24 +1,23 @@
 package com.tai.repository;
 
 
+import com.tai.controller.exception.UserNotFoundException;
 import com.tai.model.User;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
 /**
  * Created by izabella on 23.04.16.
  */
-public interface UserRepository extends CrudRepository<User, String> {
-    User findOneByLogin(String login);
+public interface UserRepository extends MongoRepository<User, String> {
 
-    User findOneByPassword(String password);
+    User findOneByLogin(@Param("login") String login) throws UserNotFoundException;
 
     User findOneByLastName(String lastName);
 
     List<User> findByLastName(String lastName);
-
-    User findOneByEmail(String email);
 
     List<User> findByFirstName(String firstName);
 

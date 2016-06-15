@@ -31,7 +31,6 @@ public class ReadForUser {
     public User searchOneByFirstName(String firstName){ return userRepository.findOneByFirstName(firstName);}
 
     public User searchOneByLogin(String login){ return userRepository.findOneByLogin(login);}
-    public User searchOneByEmail(String email){ return userRepository.findOneByEmail(email);}
 
     public void save(User user){ userRepository.save(user); }
 }

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/BuddyFinder.iml" filepath="$PROJECT_DIR$/.idea/BuddyFinder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/buddy-finder-back/buddy-finder-back.iml" filepath="$PROJECT_DIR$/buddy-finder-back/buddy-finder-back.iml" />
+      <module fileurl="file://$PROJECT_DIR$/buddy-finder-front/buddy-finder-front.iml" filepath="$PROJECT_DIR$/buddy-finder-front/buddy-finder-front.iml" />
     </modules>
   </component>
 </project>

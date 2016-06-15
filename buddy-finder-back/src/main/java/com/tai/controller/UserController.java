@@ -1,81 +1,79 @@
 package com.tai.controller;
 
-import com.tai.controller.exception.AuthenticationException;
 import com.tai.controller.exception.LoginNotUniqueException;
 import com.tai.controller.exception.UserNotFoundException;
 import com.tai.controller.request.EditUserRequest;
-import com.tai.controller.request.LogoutRequest;
-import com.tai.controller.response.LoginResponse;
-import com.tai.controller.response.UserInformationResponse;
-import com.tai.repository.OfferRepository;
-import com.tai.controller.request.LoginRequest;
 import com.tai.controller.request.RegisterRequest;
-import com.tai.service.ReadForUser;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import com.tai.model.User;
+import com.tai.repository.OfferRepository;
+import com.tai.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class UserController {
 
     @Autowired
-    ReadForUser readForUser;
+    UserRepository userRepository;
 
     @Autowired
     OfferRepository offerRepository;
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public LoginResponse login(@RequestBody LoginRequest loginRequest) {  //TODO: Session
-        User loggingUser = readForUser.searchOneByLogin(loginRequest.getLogin());
-        LoginResponse loginResponse = null;
-        if(loggingUser == null){
-            throw new UserNotFoundException(loginRequest.getLogin());
+    @RequestMapping(value = "/logout2", method = RequestMethod.GET)
+    public void logout(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("logout");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            System.out.println(auth.getName());
+            new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        else{
-            if(loggingUser.getPassword().equals(loginRequest.getPassword())){
-                loginResponse = new LoginResponse(loggingUser.getId(), "test_token", loggingUser); //TODO: token from session
-            }
-            else{
-                throw new AuthenticationException("Wrong login/password");
-            }
-        }
-
-        return loginResponse;
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
-    public void logout(@RequestBody LogoutRequest logoutRequest) {
-        //TODO: logout using token
-    }
-
-    @RequestMapping(value = "/users/new", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public void register(@RequestBody RegisterRequest registerRequest) {
-        if(readForUser.searchOneByLogin(registerRequest.getLogin()) != null){
+        if(userRepository.findOneByLogin(registerRequest.getLogin()) != null){
             throw new LoginNotUniqueException();
         }
         else{
             User newUser = new User(registerRequest.getLogin(), registerRequest.getPassword(),
                     registerRequest.getLastname(), registerRequest.getFirstname(), registerRequest.getEmail());
-            readForUser.save(newUser);
+            userRepository.save(newUser);
         }
     }
 
-    @RequestMapping(value = "/users/{login}", method = RequestMethod.GET)
-    public UserInformationResponse getUserInformation(@PathVariable(value="login") String login) {
-        UserInformationResponse userInformationResponse = null;
-        User userInformation = readForUser.searchOneByLogin(login);
-        if(userInformation != null){
-            userInformationResponse = new UserInformationResponse(userInformation.getLogin(),
-                    userInformation.getFirstName(), userInformation.getLastName(), userInformation.getEmail());
-        }
-        else{
-            throw new UserNotFoundException(login);
-        }
-        return userInformationResponse;
-    }
-
+    @PreAuthorize("hasRole('USER')")
+    @ResponseStatus(value = HttpStatus.OK, reason = "Edit successful")
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public void editUserInformation(@RequestBody EditUserRequest editUserRequest){
-        //TODO: Look for user using token
+        String login = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findOneByLogin(login);
+        if(user == null){
+            throw new UserNotFoundException("Ups! We have internal problem with logins. Login " + login + " not found");
+        }
+
+        setUserInformation(user, editUserRequest);
+        userRepository.save(user);
+    }
+
+    private void setUserInformation(User user, EditUserRequest editUserRequest){
+        String login = editUserRequest.getLogin() != null ? editUserRequest.getLogin() : user.getLogin();
+        String firstname = editUserRequest.getFirstname() != null ? editUserRequest.getFirstname() : user.getFirstName();
+        String lastname = editUserRequest.getLastname() != null ? editUserRequest.getLastname() : user.getLastName();
+        String email = editUserRequest.getEmail() != null ? editUserRequest.getEmail() : user.getEmail();
+        String password = editUserRequest.getPassword() != null ? editUserRequest.getPassword() : user.getPassword();
+
+        user.setLogin(login);
+        user.setFirstName(firstname);
+        user.setLastName(lastname);
+        user.setEmail(email);
+        user.setPassword(password);
     }
 }

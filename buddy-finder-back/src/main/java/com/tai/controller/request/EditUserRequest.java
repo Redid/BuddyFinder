@@ -5,10 +5,10 @@ import lombok.Data;
 @Data
 public class EditUserRequest {
 
-    private String token;
     private String firstname;
     private String lastname;
     private String email;
     private String login;
+    private String password;
 
 }

@@ -1,7 +1,5 @@
 package com.tai.service;
 
-import java.util.List;
-
 import com.tai.model.Offer;
 import com.tai.model.Timer;
 import com.tai.model.User;
@@ -9,6 +7,8 @@ import com.tai.repository.OfferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class ReadForOffer {
