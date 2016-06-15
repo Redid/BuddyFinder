@@ -1,4 +1,4 @@
-package com.tai.SpringConfig;
+package com.tai.SpringConfig.security;
 
 import com.tai.model.User;
 import com.tai.repository.UserRepository;
