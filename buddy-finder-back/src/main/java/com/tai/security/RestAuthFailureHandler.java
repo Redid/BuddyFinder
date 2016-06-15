@@ -1,4 +1,4 @@
-package com.tai.SpringConfig.security;
+package com.tai.security;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
@@ -15,7 +15,7 @@ public class RestAuthFailureHandler extends SimpleUrlAuthenticationFailureHandle
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
                                         AuthenticationException exception) throws IOException, ServletException {
-        System.out.println("failure");
+        System.out.println();
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 
         PrintWriter writer = response.getWriter();

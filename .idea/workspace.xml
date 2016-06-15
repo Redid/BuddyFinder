@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9f70979-b3e9-4ccd-b21b-810eadd6b8d7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/security/BFUserDetails.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/SpringConfig/security/RestAuthFailureHandler.java" afterPath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/security/RestAuthFailureHandler.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/SpringConfig/security/RestAuthSuccessHandler.java" afterPath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/security/RestAuthSuccessHandler.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/SpringConfig/security/RestAuthenticationEntryPoint.java" afterPath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/security/RestAuthenticationEntryPoint.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/SpringConfig/security/RestLogoutSuccessHandler.java" afterPath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/security/RestLogoutSuccessHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/SpringConfig/security/UserDetailsServiceImpl.java" afterPath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/security/UserDetailsServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/SpringConfig/SecurityConfiguration.java" afterPath="$PROJECT_DIR$/buddy-finder-back/src/main/java/com/tai/SpringConfig/SecurityConfiguration.java" />
     </list>
@@ -869,7 +866,7 @@
       <workItem from="1465472698737" duration="42000" />
       <workItem from="1465903603261" duration="7638000" />
       <workItem from="1465912024229" duration="21601000" />
-      <workItem from="1466014067150" duration="10152000" />
+      <workItem from="1466014067150" duration="10237000" />
     </task>
     <task id="LOCAL-00001" summary="RESTLogin (still not working, but returning cookie)&#10;">
       <created>1466020841310</created>
@@ -877,11 +874,17 @@
       <option name="project" value="LOCAL" />
       <updated>1466020841310</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added custom UserDetails class.&#10;Added user for testing root:pass">
+      <created>1466024785238</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1466024785238</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39433000" />
+    <option name="totallyTimeSpent" value="39518000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
@@ -927,7 +930,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="RESTLogin (still not working, but returning cookie)&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="RESTLogin (still not working, but returning cookie)&#10;" />
+    <MESSAGE value="Added custom UserDetails class.&#10;Added user for testing root:pass" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added custom UserDetails class.&#10;Added user for testing root:pass" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
