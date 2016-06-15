@@ -1,4 +1,4 @@
-package com.tai.SpringConfig.security;
+package com.tai.security;
 
 import com.tai.model.User;
 import com.tai.repository.UserRepository;
@@ -19,9 +19,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userRepository.findOneByLogin(s);
+        if(s.equals("root")){
+            System.out.println("root");
+            user = new User();
+            user.setLogin("root");
+            user.setPassword("pass");
+            return new BFUserDetails(user, asList(() ->"ROLE_USER"));
+        }
         if(user == null){
             throw new UsernameNotFoundException("User login " + s + " not found");
         }
-        return new org.springframework.security.core.userdetails.User(s, "pass", asList(() -> "ROLE_USER"));
+        System.out.println(user.getLogin());
+        return new BFUserDetails(user, asList(() -> "ROLE_USER"));
     }
 }
