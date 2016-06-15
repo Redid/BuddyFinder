@@ -34,9 +34,9 @@ class OffersService {
             method: "GET"
         });
     }
-    createUserOffer(userId, offerData) {
+    createUserOffer(offerData) {
         return this.$http({
-            url: this.getUrl(`users/${userId}/offers/new`),
+            url: this.getUrl(`offers/add`),
             method: "POST",
             data: offerData
         });
