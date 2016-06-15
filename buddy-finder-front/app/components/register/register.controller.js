@@ -1,61 +1,60 @@
-
 export default class RegisterController {
     constructor(usersService, $state) {
         this.usersService = usersService;
         this.$state = $state;
         this.err = '';
-        this.indexNumber = '';
         this.name = '';
         this.surname = '';
-        this.academicYear = '';
         this.email = '';
+        this.login = '';
         this.password = '';
         this.repeatedPassword = '';
+        this.sex = 'male';
     }
 
     validate() {
-        if (this.indexNumber == undefined ||
-            this.name == undefined ||
-            this.surname == undefined ||
-            this.academicYear == undefined ||
-            this.email == undefined ||
-            this.password == undefined ||
-            this.repeatedPassword == undefined) {
+        let valid = true;
+        valid = valid && this.name;
+        valid = valid && this.login;
+        valid = valid && this.surname;
+        valid = valid && this.email;
+        valid = valid && this.password;
+        valid = valid && this.repeatedPassword;
+        valid = valid && this.sex;
 
-            this.err = 'WRONG_DATA';
+        if(valid) {
+            valid = valid && this.name.length > 0;
+            valid = valid && this.login.length > 0;
+            valid = valid && this.surname.length > 0;
+            valid = valid && this.email.length > 0;
+            valid = valid && this.password.length > 0;
+            valid = valid && this.repeatedPassword.length > 0;
+            valid = valid && this.sex.length > 0;
+        }
+
+        if(!valid) {
+            this.err = "All fields must be set";
             return false;
         }
 
-        if (this.indexNumber.length == 0 ||
-            this.name.length == 0 ||
-            this.surname.length == 0 ||
-            this.academicYear.length == 0 ||
-            this.email.length == 0 ||
-            this.password.length == 0 ||
-            this.repeatedPassword.length == 0) {
-
-            this.err = 'WRONG_DATA';
+        if(this.password !== this.repeatedPassword) {
+            this.err = "Passwords do not match";
             return false;
         }
-
-        if (this.password != this.repeatedPassword) {
-            this.err = 'WRONG_PASSWORD';
-            return false;
-        }
-
         this.err = '';
         return true;
     }
 
     register() {
         let registrationData = {
-            indexNumber: this.indexNumber,
-            name: this.name,
-            surname: this.surname,
-            academicYear: this.academicYear,
+            login: this.login,
+            firstname: this.name,
+            lastname: this.surname,
             email: this.email,
-            password: this.password
+            password: this.password,
+            sex: this.sex
         };
+        console.log(registrationData);
         if (this.validate()) {
             this.usersService.register(registrationData).then(successResponse => {
                 this.$state.go('login')

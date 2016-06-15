@@ -30,7 +30,7 @@ class UserService {
 
     register(userData) {
         return this.$http({
-            url: this.getUrl('users/new'),
+            url: this.getUrl('register'),
             method: "POST",
             data: userData
         });

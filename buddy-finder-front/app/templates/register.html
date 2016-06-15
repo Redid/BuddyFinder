@@ -9,6 +9,13 @@
         <form class="form-horizontal" novalidate>
             <fieldset>
                 <div class="form-group">
+                    <label for="input-name" class="col-xs-2 control-label">Login</label>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" id="input-login" placeholder="Login"
+                               ng-model="registerCtrl.login" required>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="input-name" class="col-xs-2 control-label">Name</label>
                     <div class="col-xs-10">
                         <input type="text" class="form-control" id="input-name" placeholder="Name"
@@ -30,7 +37,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="input-password" class="col-xs-2 control-label">Passwors</label>
+                    <label for="input-password" class="col-xs-2 control-label">Password</label>
                     <div class="col-xs-10">
                         <input type="password" class="form-control" id="input-password" placeholder="Password"
                                ng-model="registerCtrl.password" required>
@@ -45,18 +52,22 @@
                 </div>
                 <label for="selectSex" class="col-xs-12 control-label" id="labelSex">Sex</label>
                 <div class="col-xs-6">
-                    <select class="form-control" id="selectSex">
-                        <option>male</option>
-                        <option>female</option>
-                        <option>other</option>
+                    <select class="form-control" id="selectSex" ng-model="registerCtrl.sex">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                        <option value="other">other</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <div class="col-xs-12">
-                        <button type="submit" id= "okButton" class="btn btn-success" ng-click="registerCtrl.register()">Register</button>
-                    </div>
+            </fieldset>
+
+            <div ng-if="registerCtrl.err.length > 0"  style="color: red;">
+                    {{registerCtrl.err}}
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <button type="submit" id= "okButton" class="btn btn-success" ng-click="registerCtrl.register()">Register</button>
                 </div>
-                </fieldset>
+            </div>
         </form>
         <p id="line">_______________________________________________________________________</p>
         <p id="regi">By clicking Sign Up, you agree to our <b>Terms</b> and that you have read our <b>Data Policy</b>, including our <b>Cookie Use</b>.</p>

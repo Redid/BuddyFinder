@@ -10,4 +10,5 @@ public class RegisterRequest {
     @NonNull private String login;
     @NonNull private String email;
     @NonNull private String password;
+    @NonNull private String sex;
 }
