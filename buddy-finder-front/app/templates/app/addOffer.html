@@ -3,6 +3,16 @@
     <form class="form-horizontal" id="informacje2">
         <fieldset>
             <div class="form-group">
+                <label for="selectType" class="col-xs-4 control-label" id="labelSex">Preffered sex*</label>
+                <div class="col-xs-6">
+                    <select class="form-control" id="selectSex" ng-model="addOfferCtrl.preferredSex">
+                        <option>female</option>
+                        <option>male</option>
+                        <option>other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="selectType" class="col-xs-4 control-label" id="labelType">Type of offer*</label>
                 <div class="col-xs-6">
                     <select class="form-control" id="selectType">
@@ -12,24 +22,26 @@
                         <option>Custom</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="where" class="col-xs-4 control-label"id="labelPlace">Choose place*</label>
-                    <div class="col-xs-3">
-                        <input type="text" id="where" class="form-control" id="where" placeholder="where" ng-model="addOfferCtrl.where">
-                    </div>
-                    <div class="col-xs-3">
-                        <button type="submit" class="btn btn-success" id="button2">Find    place</button>
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="where" class="col-xs-4 control-label"id="labelPlace">Choose place*</label>
+                <div class="col-xs-3">
+                    <input type="text" id="where" class="form-control" id="where" placeholder="where" ng-model="addOfferCtrl.where">
                 </div>
-                <div class="form-group">
-                    <label for="inputAdd" class="col-xs-4 control-label" id="labelAdd">Additional info</label>
-                    <div class="col-xs-6">
-                        <input type="text" id="tmp" class="form-control" id="inputAdd" placeholder="another info" ng-model="addOfferCtrl.additionalInfo">
-                    </div>
+                <div class="col-xs-3">
+                    <button type="submit" class="btn btn-success" id="button2">Find    place</button>
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAdd" class="col-xs-4 control-label" id="labelAdd">Additional info</label>
+                <div class="col-xs-6">
+                    <input type="text" id="tmp" class="form-control" id="inputAdd" placeholder="another info" ng-model="addOfferCtrl.anotherInfo">
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="selectAgeMin" class="col-xs-4 control-label" id="labelAge">Preffered age</label>
                 <div class="col-xs-3">
-                    <select class="form-control" id="selectAgeMin" ng-model="addOfferCtrl.preferredAge">
+                    <select class="form-control" id="selectAgeMin" ng-model="addOfferCtrl.preferredAge.min">
                         <option value="18">18</option>
                         <option value="19">19</option>
                         <option value="20">20</option>
@@ -42,7 +54,7 @@
                     </select>
                 </div>
                 <div class="col-xs-3">
-                    <select class="form-control" id="selectAgeMin">
+                    <select class="form-control" id="selectAgeMax" ng-model="addOfferCtrl.preferredAge.max">
                         <option>18</option>
                         <option>19</option>
                         <option>20</option>
@@ -54,47 +66,12 @@
                         <option>53</option>
                     </select>
                 </div>
+            </div>
+            <div class="form-group">
                 <label for="selectAgeMin" class="col-xs-4 control-label" id="labelDate">Preffered time</label>
-                <div class="col-xs-2">
-                    <select class="form-control" id="selectDay">
-                        <option>18</option>
-                        <option>19</option>
-                        <option>20</option>
-                        <option>21</option>
-                        <option>22</option>
-                        <option>23</option>
-                        <option>33</option>
-                        <option>43</option>
-                        <option>53</option>
-                    </select>
+                <div class="col-xs-6">
+                    <uib-datepicker ng-model="addOfferCtrl.date" class="well well-sm" datepicker-options="options" ng-model="date"></uib-datepicker>
                 </div>
-                <div class="col-xs-2">
-                    <select class="form-control" id="selectMonth">
-                        <option>18</option>
-                        <option>19</option>
-                        <option>20</option>
-                        <option>21</option>
-                        <option>22</option>
-                        <option>23</option>
-                        <option>33</option>
-                        <option>43</option>
-                        <option>53</option>
-                    </select>
-                </div>
-                <div class="col-xs-2">
-                    <select class="form-control" id="selectYear">
-                        <option>18</option>
-                        <option>19</option>
-                        <option>20</option>
-                        <option>21</option>
-                        <option>22</option>
-                        <option>23</option>
-                        <option>33</option>
-                        <option>43</option>
-                        <option>53</option>
-                    </select>
-                </div>
-
             </div>
         </fieldset>
     </form>

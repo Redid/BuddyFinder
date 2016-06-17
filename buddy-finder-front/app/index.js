@@ -5,6 +5,8 @@ import appComponents from './components/components.js';
 import commonComponents from './common/components.js';
 import appServices from './services/services.js';
 import appConfiguration from './app.config';
+import datepicker from 'angular-ui-bootstrap/src/datepicker';
+
 
 // Single Style Entry Point
 import './index.scss';
@@ -14,7 +16,7 @@ if (ENVIRONMENT === 'test') {
   require('angular-mocks/angular-mocks');
 }
 
-const app = angular.module('app', ['ui.router']);
+const app = angular.module('app', ['ui.router', datepicker]);
 
 // Components Entrypoint
 appComponents(app);

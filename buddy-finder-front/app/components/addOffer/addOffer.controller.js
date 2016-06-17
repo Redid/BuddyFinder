@@ -7,24 +7,28 @@ export default class AddOfferController {
         this.when = [];
         this.where = '';
         this.anotherInfo = '';
-        this.preferredSex = '';
-        this.preferredAge = '';
+        this.preferredSex = 'female';
+        this.preferredAge = {
+            min: '',
+            max: ''
+        };
+        this.date = new Date();
     }
 
-    validate() {
+    validate(model) {
         let valid = true;
-        valid = valid && this.when;
-        valid = valid && this.where;
-        valid = valid && this.anotherInfo;
-        valid = valid && this.preferredSex;
-        valid = valid && this.preferredAge;
+        valid = valid && !!model.when;
+        valid = valid && !!model.where;
+        valid = valid && !!model.anotherInfo;
+        valid = valid && !!model.preferredSex;
+        valid = valid && !!model.preferredAge;
 
         if(valid) {
-            valid = valid && this.when.length > 0;
-            valid = valid && this.where.length > 0;
-            valid = valid && this.anotherInfo.length > 0;
-            valid = valid && this.preferredSex.length > 0;
-            valid = valid && this.preferredAge.length > 0;
+            valid = valid && model.when.length > 0;
+            valid = valid && model.where.length > 0;
+            valid = valid && model.anotherInfo.length > 0;
+            valid = valid && model.preferredSex.length > 0;
+            valid = valid && model.preferredAge.length > 0;
         }
 
         if(!valid) {
@@ -37,16 +41,21 @@ export default class AddOfferController {
     }
 
     addOffer() {
+        console.log(this);
         let registrationData = {
-            when: this.when,
+            when: [{
+                date: [this.date.getFullYear(), this.date.getMonth(), this.date.getDate()],
+                from: "00:00",
+                to: "00:00",
+            }],
             where: this.where,
             anotherInfo: this.anotherInfo,
             preferredSex: this.preferredSex,
-            preferredAge: this.preferredAge
+            preferredAge: `${this.preferredAge.min} - ${this.preferredAge.max}`
         };
         registrationData.user = this.usersService.getUserSessionData().userId;
         console.log(registrationData);
-        if (this.validate()) {
+        if (this.validate(registrationData)) {
             this.offersService.createUserOffer(registrationData).then(successResponse => {
                 this.err = "Added!";
             }, errorResponse => {
