@@ -78,5 +78,6 @@ public class OfferController {
         newOffer.setAnotherInfo(addNewOfferRequest.getAnotherInfo());
         newOffer.setWhere(addNewOfferRequest.getWhere());
         newOffer.setWhen(addNewOfferRequest.getWhen());
+        newOffer.setType(addNewOfferRequest.getType());
     }
 }
