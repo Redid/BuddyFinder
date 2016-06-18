@@ -9,12 +9,9 @@ export default class UserDataViewController {
     constructor(usersService) {
         this.usersService = usersService;
         this.userData = {
-            index: '',
             name: '',
             surname: '',
-            academicYear: '',
-            email: '',
-            schedule: ''
+            email: ''
         };
         this.getUsersData();
     }

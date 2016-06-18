@@ -14,10 +14,16 @@ class UserService {
     }
 
     login(loginData) {
+        let fData = new FormData();
+        fData.append("username", loginData.login);
+        fData.append("password", loginData.password);
         return this.$http({
             url: this.getUrl('login'),
             method: "POST",
-            data: loginData
+            data: fData,
+            headers : {
+                'Content-Type': 'multipart/form-data'
+            }
         });
     }
 

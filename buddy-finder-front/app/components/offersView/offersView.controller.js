@@ -12,11 +12,24 @@ export default class OffersViewController {
     }
 
     getOffersList() {
-        this.offersService.getOffers()
-            .then(successResponse => {
-                console.log(successResponse);
-                this.offersList = successResponse.data.offers;
-            });
+        let userId = this.usersService.getUserSessionData().userId;
+        let offers = null;
+        switch (this.type) {
+            case "new":
+                offers = this.offersService.getNewOffers();
+                break;
+            case "your":
+                offers = this.offersService.getUserOffers(userId);
+                break;
+            case "all":
+            default:
+                offers = this.offersService.getOffers();
+                break;
+        }
+        offers.then(successResponse => {
+            console.log(successResponse);
+            this.offersList = successResponse.data.offers;
+        });
     }
 
 }

@@ -28,6 +28,12 @@ class OffersService {
             method: "GET"
         });
     }
+    getNewOffers() {
+        return this.$http({
+            url: this.getUrl(`offers/list`),
+            method: "GET"
+        });
+    }
     getUserOffers(userId) {
         return this.$http({
             url: this.getUrl(`users/${userId}/offers`),

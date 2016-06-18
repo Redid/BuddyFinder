@@ -56,7 +56,7 @@ export default app => {
             })
             .state('logged.yourOffer', {
                 url: '/yourOffer',
-                templateUrl: 'templates/app/yourOffer.html'
+                template: '<t-offers-view type="your"></t-offers-view>'
             })
             .state('logged.addOffer', {
                 url: '/addOffer',
@@ -64,15 +64,19 @@ export default app => {
             })
             .state('logged.viewOffer', {
                 url: '/viewOffer',
-                template: '<t-offers-view></t-offers-view>'
+                template: '<t-offers-view type="all"></t-offers-view>'
             })
             .state('logged.editOffer', {
                 url: '/editOffer',
                 templateUrl: 'templates/app/editOffer.html'
             })
+            .state('logged.editUser', {
+                url: '/editUser',
+                templateUrl: 'templates/app/editUser.html'
+            })
             .state('logged.newOffer', {
                 url: '/newOffer',
-                templateUrl: 'templates/app/newOffer.html'
+                template: '<t-offers-view type="new"></t-offers-view>'
             })
     }).directive('home', homeComponent);
 
