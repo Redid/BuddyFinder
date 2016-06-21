@@ -1,8 +1,8 @@
 export default class UserDataViewController {
 
     getUsersData() {
-        this.usersService.getUser(this.usersService.getUserSessionData().userId).then(successResponse => {
-            this.userData = successResponse.data;
+        this.usersService.getUserSessionData((response) => {
+            this.userData = response.user;
         })
     }
 

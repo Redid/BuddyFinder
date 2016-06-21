@@ -9,12 +9,6 @@ class OffersService {
     getUrl(url) {
         return `${this.baseUrl}/${url}`;
     }
-    setUserSessionData(userSessionData){
-        this.userSessionData = userSessionData;
-    }
-    getUserSessionData(){
-        return this.userSessionData;
-    }
 
     getOffer(offerId) {
         return this.$http({

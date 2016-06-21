@@ -1,7 +1,8 @@
 class UserService {
     /*@ngInject*/
-    constructor($http, buddyServerUrl, AuthorizationToken) {
+    constructor($http, $location, buddyServerUrl, AuthorizationToken) {
         this.$http = $http;
+        this.$location = $location;
         this.baseUrl = buddyServerUrl;
         this.userSessionData = {
             'userId' : '',
@@ -13,24 +14,13 @@ class UserService {
         return `${this.baseUrl}/${url}`;
     }
 
-    login(loginData) {
-        let fData = new FormData();
-        fData.append("username", loginData.login);
-        fData.append("password", loginData.password);
-        return this.$http({
-            url: this.getUrl('login'),
-            method: "POST",
-            data: fData,
-            headers : {
-                'Content-Type': 'multipart/form-data'
-            }
-        });
-    }
-
     logout() {
-        return this.$http({
-            url: this.getUrl('logout'),
-            method: "POST"
+        return this.$http.post(this.getUrl('logout'), {}).success(function() {
+            self.authenticated = false;
+            this.$location.path("/");
+        }).error(function(data) {
+            console.log("Logout failed")
+            self.authenticated = false;
         });
     }
 
@@ -62,13 +52,28 @@ class UserService {
             method: "DELETE"
         });
     }
+    getUserSessionData(callback){
+        return this.$http.get(this.getUrl("user")).success((data) => {
+            if (data.name) {
+                this.user = data.name;
+                this.authenticated = true;
+            } else {
+                this.user = "N/A";
+                this.authenticated = false;
+            }
+            callback({
+               user: this.user,
+                authenticated: this.authenticated
+            });
+        }).error(function() {
+            this.user = "N/A";
+            this.authenticated = false;
 
-
-    setUserSessionData(userSessionData){
-        this.userSessionData = userSessionData;
-    }
-    getUserSessionData(){
-        return this.userSessionData;
+            callback({
+                user: this.user,
+                authenticated: this.authenticated
+            });
+        });
     }
 }
 

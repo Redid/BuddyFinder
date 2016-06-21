@@ -53,10 +53,10 @@ var config = {
 switch (nodeEnvironment) {
   case 'production':
     config.output.path = __dirname + '/dist';
-    config.plugins.push(new webpack.optimize.UglifyJsPlugin());
-    config.plugins.push(new webpack.optimize.DedupePlugin());
-    config.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
-    config.plugins.push(new webpack.optimize.CommonsChunkPlugin({name: 'vendor', minChunks: Infinity}));
+    //config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+    //config.plugins.push(new webpack.optimize.DedupePlugin());
+    //config.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
+    //config.plugins.push(new webpack.optimize.CommonsChunkPlugin({name: 'vendor', minChunks: Infinity}));
     
     config.output.filename = '[name].js';
 

@@ -5,30 +5,11 @@
     <div class="col-xs-8">
         <h1>Find your buddy!</h1>
         <h2>You are closer than ever, just log in!</h2>
-        <div class="animate-switch-container"
-        ng-switch="loginCtrl.token" id='err_msg'>
-            <p ng-switch-when="WRONG_PASSWORD">You typed wrong password, try again</p>
-            <p ng-switch-when="WRONG_EMAIL">User doesn't exist</p>
-            <p ng-switch-default></p>
+        <div class="form-group">
+            <a href="/login/facebook" id="buttonFacebook" class="btn btn-success">Login via facebook</a>
         </div>
-        <form class="form-horizontal">
-            <fieldset>
-                <div class="form-group">
-                    <label for="inputEmail" id="em" class="control-label"></label>
-                    <input class="form-control" id="inputEmail" placeholder="Login" type="login" ng-model="loginCtrl.username">
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword" id="pasw" class="control-label"></label>
-                    <input class="form-control" id="inputPassword" placeholder="Password" type="password" ng-model="loginCtrl.password">
-                </div>
-                <div class="form-group">
-                    <button href="#" id="buttonSubmit" class="btn btn-success" ng-click="loginCtrl.login()">Okej</button>
-                </div>
-                <p id="face"> Or you can just use your facebook account to log in...</p>
-                <div class="form-group">
-                    <button href="#" id="buttonFacebook" class="btn btn-success" ng-click="loginCtrl.login()">Login via facebook</button>
-                </div>
-            </fieldset>
-        </form>
+        <div class="form-group">
+            <a href="/login/github"  id="buttonGithub" class="btn btn-success">Login via github</a>
+        </div>
     </div>
 </div>
