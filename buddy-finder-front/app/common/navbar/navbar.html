@@ -1,14 +1,18 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" ng-if="navBarCtrl.loggedIn" href="#/logged">
+        <img src="../../assets/d.png" class="img-circle" id="logo"/> BuddyFinder
+      </a>
+      <a class="navbar-brand" ng-if="!navBarCtrl.loggedIn" href="#">
         <img src="../../assets/d.png" class="img-circle" id="logo"/> BuddyFinder
       </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li ngIf="loggedIn"><a ng-click="navBarCtrl.logout()"> Log out </a></li>
-        <li ngIf="!loggedIn"><a href="/#/login"> Login </a></li>
+        <li ng-if="navBarCtrl.loggedIn">Logged in as: {{navBarCtrl.userName}}</li>
+        <li ng-if="navBarCtrl.loggedIn"><a ng-click="navBarCtrl.logout()"> Log out </a></li>
+        <li ng-if="!navBarCtrl.loggedIn"><a href="/#/login"> Login </a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container-fluid -->

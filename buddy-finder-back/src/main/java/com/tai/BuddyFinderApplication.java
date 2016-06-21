@@ -1,5 +1,6 @@
 package com.tai;
 
+import com.tai.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -70,13 +71,6 @@ public class BuddyFinderApplication extends WebSecurityConfigurerAdapter {
 	@Autowired
 	OAuth2ClientContext oauth2ClientContext;
 
-	@RequestMapping({ "/user", "/me" })
-	public Map<String, String> user(Principal principal) {
-		Map<String, String> map = new LinkedHashMap<>();
-		map.put("name", principal.getName());
-		return map;
-	}
-
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// @formatter:off
@@ -134,8 +128,10 @@ public class BuddyFinderApplication extends WebSecurityConfigurerAdapter {
 	private Filter ssoFilter() {
 		CompositeFilter filter = new CompositeFilter();
 		List<Filter> filters = new ArrayList<>();
-		filters.add(ssoFilter(facebook(), "/login/facebook"));
-		filters.add(ssoFilter(github(), "/login/github"));
+		Filter facebook = ssoFilter(facebook(), "/login/facebook");
+		Filter github = ssoFilter(github(), "/login/github");
+		filters.add(facebook);
+		filters.add(github);
 		filter.setFilters(filters);
 		return filter;
 	}

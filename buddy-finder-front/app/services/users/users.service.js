@@ -15,12 +15,12 @@ class UserService {
     }
 
     logout() {
-        return this.$http.post(this.getUrl('logout'), {}).success(function() {
+        return this.$http.post(this.getUrl('logout'), {}).success(() => {
             self.authenticated = false;
             this.$location.path("/");
-        }).error(function(data) {
+        }).error((data) => {
             console.log("Logout failed")
-            self.authenticated = false;
+            this.authenticated = false;
         });
     }
 
@@ -32,9 +32,9 @@ class UserService {
         });
     }
 
-    edit(userId, userData) {
+    edit(userData) {
         return this.$http({
-            url: this.getUrl(`users/${userId}/edit`),
+            url: this.getUrl(`users/edit`),
             method: "POST",
             data: userData
         });
@@ -56,6 +56,7 @@ class UserService {
         return this.$http.get(this.getUrl("user")).success((data) => {
             if (data.name) {
                 this.user = data.name;
+                this.userInfo = data,
                 this.authenticated = true;
             } else {
                 this.user = "N/A";
@@ -63,6 +64,7 @@ class UserService {
             }
             callback({
                user: this.user,
+                userInfo: data,
                 authenticated: this.authenticated
             });
         }).error(function() {

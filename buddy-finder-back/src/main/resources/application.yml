@@ -20,8 +20,8 @@ github:
     userInfoUri: https://api.github.com/user
 
 logging:
-  level:
-    org.springframework.security: DEBUG
+  level: DEBUG
+#    org.springframework.security: DEBUG
 
 spring:
   resources:
