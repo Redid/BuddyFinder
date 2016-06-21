@@ -5,7 +5,6 @@ import com.tai.controller.request.AddNewOfferRequest;
 import com.tai.controller.request.EditOfferRequest;
 import com.tai.controller.response.OfferListResponse;
 import com.tai.model.Offer;
-import com.tai.model.Timer;
 import com.tai.model.User;
 import com.tai.service.ReadForOffer;
 import com.tai.service.ReadForUser;

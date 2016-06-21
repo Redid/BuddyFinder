@@ -15,22 +15,18 @@
     </wildcardResourcePatterns>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="false">
-        <processorPath useClasspath="true">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.16.6/lombok-1.16.6.jar" />
-        </processorPath>
+        <processorPath useClasspath="true" />
       </profile>
       <profile default="false" name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.16.6/lombok-1.16.6.jar" />
-        </processorPath>
-        <module name="buddy-finder" />
+        <processorPath useClasspath="true" />
+        <module name="social-github" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="buddy-finder" target="1.8" />
+      <module name="social-github" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

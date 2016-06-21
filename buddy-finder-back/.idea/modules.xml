@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/buddy-finder.iml" filepath="$PROJECT_DIR$/buddy-finder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/social-github.iml" filepath="$PROJECT_DIR$/social-github.iml" />
     </modules>
   </component>
 </project>
