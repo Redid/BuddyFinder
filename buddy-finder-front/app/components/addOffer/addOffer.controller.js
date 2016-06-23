@@ -57,8 +57,10 @@ export default class AddOfferController {
         console.log(registrationData);
         if (this.validate(registrationData)) {
             this.offersService.createUserOffer(registrationData).then(successResponse => {
+                console.log(successResponse);
                 this.err = "Added!";
             }, errorResponse => {
+                console.log(errorResponse);
                 this.err = 'Error!';
             });
         }

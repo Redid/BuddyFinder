@@ -1,15 +1,27 @@
 export default class EditUserController {
-    constructor(usersService, $state) {
+    constructor(usersService, $state, $location) {
         this.usersService = usersService;
         this.$state = $state;
+        this.$location = $location;
         this.err = '';
         this.name = '';
         this.surname = '';
         this.email = '';
         this.login = '';
-        this.password = '';
-        this.repeatedPassword = '';
-        this.sex = 'male';
+        this.age = 1;
+        this.sex = 'female';
+
+        this.usersService.getUserSessionData((response) => {
+            const user = response.userInfo;
+            console.log(user);
+            this.age = user.age;
+            this.email = user.email;
+            this.name = user.firstName;
+            this.surname = user.lastName;
+            this.login = user.name;
+            this.sex = user.sex;
+            console.log(this);
+        });
     }
 
     validate() {
@@ -51,13 +63,15 @@ export default class EditUserController {
             firstname: this.name,
             lastname: this.surname,
             email: this.email,
-            /*password: this.password,
-            sex: this.sex*/
+            /*password: this.password,*/
+            sex: this.sex,
+            age: this.age
         };
         console.log(registrationData);
         //if (this.validate()) {
             this.usersService.edit(registrationData).then(successResponse => {
                 console.log(successResponse);
+                this.$location.path('/logged');
             }, errorResponse => {
                 console.log(errorResponse);
             });

@@ -5,8 +5,8 @@ class UserService {
         this.$location = $location;
         this.baseUrl = buddyServerUrl;
         this.userSessionData = {
-            'userId' : '',
-            'token' : AuthorizationToken.NO_AUTH
+            'userId': '',
+            'token': AuthorizationToken.NO_AUTH
         };
     }
 
@@ -46,28 +46,32 @@ class UserService {
             method: "GET"
         });
     }
+
     deleteUser(userId) {
         return this.$http({
             url: this.getUrl(`users/${userId}/delete`),
             method: "DELETE"
         });
     }
-    getUserSessionData(callback){
+
+    getUserSessionData(callback) {
         return this.$http.get(this.getUrl("user")).success((data) => {
             if (data.name) {
                 this.user = data.name;
                 this.userInfo = data,
-                this.authenticated = true;
+                    this.authenticated = true;
             } else {
                 this.user = "N/A";
                 this.authenticated = false;
             }
-            callback({
-               user: this.user,
-                userInfo: data,
-                authenticated: this.authenticated
-            });
-        }).error(function() {
+            if (callback) {
+                callback({
+                    user: this.user,
+                    userInfo: data,
+                    authenticated: this.authenticated
+                });
+            }
+        }).error(function () {
             this.user = "N/A";
             this.authenticated = false;
 

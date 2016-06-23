@@ -3,6 +3,7 @@ export default class LoggedController {
     this.usersService = usersService;
     this.usersService.getUserSessionData((response) => {
       this.user = (response || {}).userInfo;
+      console.log(this.user);
     });
   }
 }
