@@ -5,12 +5,17 @@ import com.tai.controller.request.AddNewOfferRequest;
 import com.tai.controller.request.EditOfferRequest;
 import com.tai.controller.response.OfferListResponse;
 import com.tai.model.Offer;
+import com.tai.model.Timer;
 import com.tai.model.User;
+import com.tai.repository.OfferRepository;
+import com.tai.repository.TimerRepository;
+import com.tai.repository.UserRepository;
 import com.tai.service.ReadForOffer;
 import com.tai.service.ReadForUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +28,25 @@ public class OfferController {
 
     @Autowired
     ReadForOffer readForOffer;
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    OfferRepository offerRepository;
+
+    @Autowired
+    TimerRepository timerRepository;
+
+
+    @RequestMapping(value = "/list/mine", method = RequestMethod.GET)
+    public OfferListResponse list(Principal principal) {
+        List<Offer> offers = new ArrayList<>();
+        User user = userRepository.findOneByLogin(principal.getName());
+        System.out.println(user.getId());
+        readForOffer.searchAllByUser(user).forEach(offers::add);
+        return new OfferListResponse(offers, offers.size());
+    }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public OfferListResponse list() {
@@ -67,16 +91,27 @@ public class OfferController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public void add(@RequestBody AddNewOfferRequest addNewOfferRequest) {
+    public void add(@RequestBody AddNewOfferRequest addNewOfferRequest, Principal principal) {
+        User user = userRepository.findOneByLogin(principal.getName());
+
+        List<Timer> timers = addNewOfferRequest.getWhen();
+        List<Timer> savedTimers = new ArrayList<Timer>();
+        for(Timer timer : timers) {
+            Timer saved = timerRepository.save(timer);
+            savedTimers.add(saved);
+            System.out.println(saved.toString());
+        }
+
         Offer newOffer = new Offer();
 
-        User owner = readForUser.searchOneByLogin(addNewOfferRequest.getUser());
-        newOffer.setUser(owner);
+        newOffer.setUser(user);
         newOffer.setPreferredSex(addNewOfferRequest.getPreferredSex());
         newOffer.setPreferredAge(addNewOfferRequest.getPreferredAge());
         newOffer.setAnotherInfo(addNewOfferRequest.getAnotherInfo());
         newOffer.setWhere(addNewOfferRequest.getWhere());
-        newOffer.setWhen(addNewOfferRequest.getWhen());
+        newOffer.setWhen(savedTimers);
         newOffer.setType(addNewOfferRequest.getType());
+
+        offerRepository.save(newOffer);
     }
 }

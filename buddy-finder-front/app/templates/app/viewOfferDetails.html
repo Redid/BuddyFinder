@@ -1,0 +1,23 @@
+<div class="col-md-12" ng-init="offerDetailsCtrl.init()" id="offer-details">
+    <h1>Offer details</h1>
+    <p>Where: {{offerDetailsCtrl.offer.where}}</p>
+    <p>When: </p>
+    <ul>
+        <li ng-repeat="timer in offerDetailsCtrl.offer.when">
+            {{timer.from}} - {{timer.to}}
+            {{timer.date | date:'yyyy-MM-dd HH:mm:ss Z'}}
+        </li>
+    </ul>
+
+    <p>Additional info: {{offerDetailsCtrl.offer.anotherInfo}}</p>
+    <p>Preferred sex: {{offerDetailsCtrl.offer.preferredSex}}</p>
+    <p>Preferred age: {{offerDetailsCtrl.offer.preferredAge}}</div>
+
+    <h2>User</h2>
+    <p>First name: {{offerDetailsCtrl.user.firstName}}</p>
+    <p>Last name: {{offerDetailsCtrl.user.lastName}}</p>
+    <p>E-mail: {{offerDetailsCtrl.user.email}}</p>
+    <p>Login: {{offerDetailsCtrl.user.login}}</p>
+    <p>Age: {{offerDetailsCtrl.user.age}}</p>
+    <p>Sex: {{offerDetailsCtrl.user.sex}}</p>
+</div>

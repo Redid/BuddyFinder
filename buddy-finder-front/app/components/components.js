@@ -6,6 +6,7 @@ import editUserComponent from './editUser/editUser';
 import offersViewComponent from './offersView/offersView';
 import userDataViewComponent from './userDataView/userDataView';
 import loggedComponent from './logged/logged';
+import offersDetails from './offersDetails/offersDetails';
 
 export default app => {
   INCLUDE_ALL_MODULES([homeComponent,
@@ -15,5 +16,6 @@ export default app => {
     offersViewComponent,
     editUserComponent,
     userDataViewComponent,
-    loggedComponent], app);
+    loggedComponent,
+    offersDetails], app);
 }

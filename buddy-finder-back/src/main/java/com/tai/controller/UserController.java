@@ -35,13 +35,16 @@ public class UserController {
     public Map<String, String> user(Principal principal) {
         Map<String, String> map = new LinkedHashMap<>();
         map.put("name", principal.getName());
-        System.out.println(principal.getName());
+
         User user = userRepository.findOneByLogin(principal.getName());
-        System.out.println(user);
         if(user != null) {
             map.put("lastName", user.getLastName());
             map.put("firstName", user.getFirstName());
             map.put("email", user.getEmail());
+            map.put("sex", user.getSex());
+            if(user.getAge() != null) {
+                map.put("age", Integer.toString(user.getAge()));
+            }
         }
         return map;
     }
@@ -83,6 +86,8 @@ public class UserController {
         String firstname = editUserRequest.getFirstname() != null ? editUserRequest.getFirstname() : user.getFirstName();
         String lastname = editUserRequest.getLastname() != null ? editUserRequest.getLastname() : user.getLastName();
         String email = editUserRequest.getEmail() != null ? editUserRequest.getEmail() : user.getEmail();
+        String sex = editUserRequest.getSex() != null ? editUserRequest.getSex() : user.getSex();
+        Integer age = editUserRequest.getAge() != null ? editUserRequest.getAge() : user.getAge();
         //String password = editUserRequest.getPassword() != null ? editUserRequest.getPassword() : user.getPassword();
 
         //user.setLogin(login);
@@ -91,6 +96,8 @@ public class UserController {
         user.setFirstName(firstname);
         user.setLastName(lastname);
         user.setEmail(email);
+        user.setSex(sex);
+        user.setAge(age);
         //user.setPassword(password);
     }
 }

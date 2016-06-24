@@ -78,6 +78,14 @@ export default app => {
                 url: '/newOffer',
                 template: '<t-offers-view type="new"></t-offers-view>'
             })
+            .state('logged.offerDetails', {
+                url: '/offers/:offerId',
+                template: '<t-offers-details />'
+            })
+            .state('logged.searchOffer', {
+                url: '/viewOffer/search',
+                template: '<t-offers-view type="new"></t-offers-view>'
+            })
     }).directive('home', homeComponent);
 
     if (ENVIRONMENT === 'test') {

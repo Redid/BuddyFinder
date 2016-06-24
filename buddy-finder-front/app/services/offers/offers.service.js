@@ -30,7 +30,7 @@ class OffersService {
     }
     getUserOffers(userId) {
         return this.$http({
-            url: this.getUrl(`users/${userId}/offers`),
+            url: this.getUrl(`offers/list/mine`),
             method: "GET"
         });
     }

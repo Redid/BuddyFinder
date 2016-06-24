@@ -16,9 +16,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @JsonIgnoreProperties({"password", "email"})
 public class User extends AbstractModel {
-    private String login;
     private String password;
+    private String login;
     private String lastName;
     private String firstName;
     private String email;
+    private String sex;
+    private Integer age;
 }
