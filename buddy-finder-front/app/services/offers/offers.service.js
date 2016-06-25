@@ -22,6 +22,16 @@ class OffersService {
             method: "GET"
         });
     }
+    searchOffers(params) {
+        let urlParams = '?';
+        Object.keys(params).forEach((key) => {
+            urlParams += `${key}=${params[key]}&`;
+        });
+        return this.$http({
+            url: this.getUrl(`offers/search${urlParams}`),
+            method: "GET"
+        });
+    }
     getNewOffers() {
         return this.$http({
             url: this.getUrl(`offers/list`),

@@ -52,7 +52,7 @@ var config = {
 
 switch (nodeEnvironment) {
   case 'production':
-    config.output.path = __dirname + '/dist';
+    config.output.path = __dirname + '/dist/js';
     //config.plugins.push(new webpack.optimize.UglifyJsPlugin());
     //config.plugins.push(new webpack.optimize.DedupePlugin());
     //config.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
@@ -72,6 +72,7 @@ switch (nodeEnvironment) {
     break;
 
   case 'development':
+    config.output.publicPath = '/js/';
     config.entry = ['./index.js', 'webpack/hot/dev-server'];
     break;
     

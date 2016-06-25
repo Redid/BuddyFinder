@@ -1,6 +1,7 @@
 package com.tai.controller;
 
 import com.tai.controller.exception.OfferNotFoundException;
+import com.tai.controller.exception.UserNotFoundException;
 import com.tai.controller.request.AddNewOfferRequest;
 import com.tai.controller.request.EditOfferRequest;
 import com.tai.controller.response.OfferListResponse;
@@ -13,6 +14,7 @@ import com.tai.repository.UserRepository;
 import com.tai.service.ReadForOffer;
 import com.tai.service.ReadForUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -43,9 +45,12 @@ public class OfferController {
     public OfferListResponse list(Principal principal) {
         List<Offer> offers = new ArrayList<>();
         User user = userRepository.findOneByLogin(principal.getName());
-        System.out.println(user.getId());
-        readForOffer.searchAllByUser(user).forEach(offers::add);
-        return new OfferListResponse(offers, offers.size());
+        if (user != null) {
+            System.out.println(user.getId());
+            readForOffer.searchAllByUser(user).forEach(offers::add);
+            return new OfferListResponse(offers, offers.size());
+        }
+        throw new UserNotFoundException("user");
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -58,7 +63,7 @@ public class OfferController {
     @RequestMapping(value = "/{offerId}", method = RequestMethod.GET)
     public Offer handleOffer(@PathVariable("offerId") String offerId) {
         Offer offer = readForOffer.searchById(offerId);
-        if(offer == null){
+        if (offer == null) {
             throw new OfferNotFoundException();
         }
 
@@ -68,24 +73,22 @@ public class OfferController {
     @RequestMapping(value = "/{offerId}/edit", method = RequestMethod.PUT)
     public void edit(@PathVariable("offerID") String offerID, @RequestBody EditOfferRequest editOfferRequest) {
         Offer offerToEdit = readForOffer.searchById(offerID);
-        if(offerToEdit != null){
+        if (offerToEdit != null) {
             offerToEdit.setPreferredSex(editOfferRequest.getPreferredSex());
             offerToEdit.setPreferredAge(editOfferRequest.getPreferredAge());
             offerToEdit.setAnotherInfo(editOfferRequest.getAnotherInfo());
             offerToEdit.setWhere(editOfferRequest.getWhere());
             offerToEdit.setWhen(editOfferRequest.getWhen());
-        }
-        else{
+        } else {
             throw new OfferNotFoundException();
         }
     }
 
     @RequestMapping(value = "/{offerId}", method = RequestMethod.DELETE)
     public void remove(@PathVariable("offerID") String offerID) {
-        if(readForOffer.searchById(offerID) != null){
+        if (readForOffer.searchById(offerID) != null) {
             readForOffer.deleteOffer(offerID);
-        }
-        else{
+        } else {
             throw new OfferNotFoundException();
         }
     }
@@ -96,7 +99,7 @@ public class OfferController {
 
         List<Timer> timers = addNewOfferRequest.getWhen();
         List<Timer> savedTimers = new ArrayList<Timer>();
-        for(Timer timer : timers) {
+        for (Timer timer : timers) {
             Timer saved = timerRepository.save(timer);
             savedTimers.add(saved);
             System.out.println(saved.toString());
@@ -113,5 +116,13 @@ public class OfferController {
         newOffer.setType(addNewOfferRequest.getType());
 
         offerRepository.save(newOffer);
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public List<Offer> search(@RequestParam(value = "age", required = false) String age, @RequestParam(value = "sex", required = false) String sex) {
+        if (age != null) {
+            age = "/" + age + "/";
+        }
+        return offerRepository.findByParams(age, sex);
     }
 }

@@ -5,10 +5,31 @@ export default class OffersViewController {
         this.usersService = usersService;
         this.$state = $state;
         this.offersList = [];
+        this.searchModel = {
+            sexEnabled: false,
+            whereEnabled: false,
+            where: '',
+            sex: 'female'
+        };
     }
 
     init() {
         this.getOffersList();
+    }
+
+    search() {
+        const params = {};
+        if(this.searchModel.sexEnabled) {
+            params.sex = this.searchModel.sex;
+        }
+        if(this.searchModel.whereEnabled) {
+            params.where = this.searchModel.where;
+        }
+        console.log(this.searchModel);
+        console.log(params);
+        this.offersService.searchOffers(params).then((successResponse) => {
+            this.offersList = successResponse.data;
+        });
     }
 
     getOffersList() {

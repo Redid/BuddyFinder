@@ -4,6 +4,8 @@ import com.tai.model.Offer;
 import com.tai.model.Timer;
 import com.tai.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -38,5 +40,8 @@ public interface OfferRepository extends MongoRepository<Offer, String> {
     Offer findOneByUser(User user);
 
     List<Offer> findByUser(User user);
+
+    @Query("{ $and: [ {$or : [{ $where: '?0 == null' } , { preferredAge: ?0 }] }, {$or : [{ $where: '?1 == null' } , { preferredSex: ?1 }] } ]}")
+    List<Offer> findByParams(String age, String sex);
 
 }

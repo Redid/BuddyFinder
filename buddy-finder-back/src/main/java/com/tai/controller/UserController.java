@@ -33,6 +33,7 @@ public class UserController {
 
     @RequestMapping({ "/user", "/me" })
     public Map<String, String> user(Principal principal) {
+        System.out.println(principal.getName());
         Map<String, String> map = new LinkedHashMap<>();
         map.put("name", principal.getName());
 

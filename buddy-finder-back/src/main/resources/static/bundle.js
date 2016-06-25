@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "79e19e35495105097114"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "afa47a0c1073930a08bb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -37860,7 +37860,7 @@
 /* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" ng-if=\"navBarCtrl.loggedIn\" href=\"#/logged\">\n        <img src=\"" + __webpack_require__(37) + "\" class=\"img-circle\" id=\"logo\"/> BuddyFinder\n      </a>\n      <a class=\"navbar-brand\" ng-if=\"!navBarCtrl.loggedIn\" href=\"#\">\n        <img src=\"" + __webpack_require__(37) + "\" class=\"img-circle\" id=\"logo\"/> BuddyFinder\n      </a>\n    </div>\n    <div id=\"navbar\" class=\"navbar-collapse collapse\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li ng-if=\"navBarCtrl.loggedIn\">Logged in as: {{navBarCtrl.userName}}</li>\n        <li ng-if=\"navBarCtrl.loggedIn\"><a ng-click=\"navBarCtrl.logout()\"> Log out </a></li>\n        <li ng-if=\"!navBarCtrl.loggedIn\"><a href=\"/#/login\"> Login </a></li>\n      </ul>\n    </div><!--/.nav-collapse -->\n  </div><!--/.container-fluid -->\n</nav>\n";
+	module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" ng-if=\"navBarCtrl.loggedIn\" href=\"#/logged\">\n        <img src=\"" + __webpack_require__(37) + "\" class=\"img-circle\" id=\"logo\"/> BuddyFinder\n      </a>\n      <a class=\"navbar-brand\" ng-if=\"!navBarCtrl.loggedIn\" href=\"#\">\n        <img src=\"" + __webpack_require__(37) + "\" class=\"img-circle\" id=\"logo\"/> BuddyFinder\n      </a>\n    </div>\n    <div id=\"navbar\" class=\"navbar-collapse collapse\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li ng-if=\"navBarCtrl.loggedIn\">Logged in as: {{navBarCtrl.userName}}</li>\n        <li ng-if=\"navBarCtrl.loggedIn\"><a ng-click=\"navBarCtrl.logout()\"> Log out </a></li>\n        <li ng-if=\"!navBarCtrl.loggedIn\"><a href=\"#/login\"> Login </a></li>\n      </ul>\n    </div><!--/.nav-collapse -->\n  </div><!--/.container-fluid -->\n</nav>\n";
 
 /***/ },
 /* 37 */
