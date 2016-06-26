@@ -1,5 +1,6 @@
 package com.tai;
 
+import com.tai.config.BuddyAuthenticationSuccessHandler;
 import com.tai.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -70,6 +71,9 @@ public class BuddyFinderApplication extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	OAuth2ClientContext oauth2ClientContext;
+
+	@Autowired
+	BuddyAuthenticationSuccessHandler authenticationSuccessHandler;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -146,6 +150,7 @@ public class BuddyFinderApplication extends WebSecurityConfigurerAdapter {
 				client.getResource().getUserInfoUri(), client.getClient().getClientId());
 		tokenServices.setRestTemplate(oAuth2RestTemplate);
 		oAuth2ClientAuthenticationFilter.setTokenServices(tokenServices);
+		oAuth2ClientAuthenticationFilter.setAuthenticationSuccessHandler(authenticationSuccessHandler);
 		return oAuth2ClientAuthenticationFilter;
 	}
 

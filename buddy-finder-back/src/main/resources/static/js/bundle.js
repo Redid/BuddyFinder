@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "33214abccf967f73d388"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e8d6a887f6367e8fd9b0"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -37230,8 +37230,6 @@
 	                preferredSex: this.preferredSex,
 	                preferredAge: this.preferredAge.min + ' - ' + this.preferredAge.max
 	            };
-	            registrationData.user = this.usersService.getUserSessionData().userId;
-	            console.log(registrationData);
 	            if (this.validate(registrationData)) {
 	                this.offersService.createUserOffer(registrationData).then(function (successResponse) {
 	                    console.log(successResponse);
@@ -38137,7 +38135,7 @@
 	        value: function getUserSessionData(callback) {
 	            var _this2 = this;
 
-	            return this.$http.get(this.getUrl("me")).success(function (data) {
+	            return this.$http.get(this.getUrl("user")).success(function (data) {
 	                if (data.name) {
 	                    _this2.user = data.name;
 	                    _this2.userInfo = data, _this2.authenticated = true;
@@ -38156,10 +38154,12 @@
 	                _this2.user = "N/A";
 	                _this2.authenticated = false;
 
-	                callback({
-	                    user: _this2.user,
-	                    authenticated: _this2.authenticated
-	                });
+	                if (callback) {
+	                    callback({
+	                        user: _this2.user,
+	                        authenticated: _this2.authenticated
+	                    });
+	                }
 	            });
 	        }
 	    }]);

@@ -55,7 +55,7 @@ class UserService {
     }
 
     getUserSessionData(callback) {
-        return this.$http.get(this.getUrl("me")).success((data) => {
+        return this.$http.get(this.getUrl("user")).success((data) => {
             if (data.name) {
                 this.user = data.name;
                 this.userInfo = data,
@@ -75,10 +75,12 @@ class UserService {
             this.user = "N/A";
             this.authenticated = false;
 
-            callback({
-                user: this.user,
-                authenticated: this.authenticated
-            });
+            if (callback) {
+                callback({
+                    user: this.user,
+                    authenticated: this.authenticated
+                });
+            }
         });
     }
 }

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="buddy-finder-back:war">
+    <output-path>$PROJECT_DIR$/buddy-finder-back/target</output-path>
+    <root id="archive" name="buddy-finder-back-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="buddy-finder-back:war exploded" />
+    </root>
+  </artifact>
+</component>

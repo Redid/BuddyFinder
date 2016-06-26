@@ -53,8 +53,6 @@ export default class AddOfferController {
             preferredSex: this.preferredSex,
             preferredAge: `${this.preferredAge.min} - ${this.preferredAge.max}`
         };
-        registrationData.user = this.usersService.getUserSessionData().userId;
-        console.log(registrationData);
         if (this.validate(registrationData)) {
             this.offersService.createUserOffer(registrationData).then(successResponse => {
                 console.log(successResponse);
