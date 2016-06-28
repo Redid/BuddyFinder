@@ -1,12 +1,78 @@
+#search-bar {
+  background-color: #888888;
+}
+
 #htmp{
   padding-bottom: 30px;
 }
-#bMain1,#bMain2{
-  margin-top: 40px;
+#bMain2, #bMain1{
+  margin-top: 100px;
   background-color: #A53D36;
   border-color: #A53D36;
 
 }
 #bMain1{
   margin-left: 70px;
+}
+
+#filter,#bSearch,#filter1{
+  margin-left: 100px;
+}
+
+#filter{
+  align-content: center;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  #check1, #check2, #selectTmp1{
+    background-color: #A53D36;
+  }
+}
+
+#bSearch{
+  margin-bottom: 10px;
+  padding-left: 15px;
+  text-align: center;
+  background-color: #A53D36;
+  border-color: #A53D36;
+}
+
+#where{
+  color:  #4B4B4B;
+  padding-top: 7px;
+}
+
+#filter1{
+  color:  #4B4B4B;
+  font-size: 120%;
+}
+
+#bContact{
+  text-align: center;
+  background-color: #A53D36;
+  border-color: #A53D36;
+}
+
+#bMain2,#bMain1{
+  display: inline-block;
+  margin-left: 100px;
+}
+
+#content1 {
+  th {
+    &, & > th {
+      background-color: #A53D36;
+    }
+  }
+  tr:nth-child(odd) {
+    &, & > td {
+      background-color: #5c5c5c;
+    }
+  }
+  tr:nth-child(even) {
+    &, & > td {
+      background-color: #3c3c3c;
+    }
+  }
 }

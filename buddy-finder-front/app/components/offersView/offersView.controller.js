@@ -55,4 +55,8 @@ export default class OffersViewController {
         });
     }
 
+    getRandomSpan() {
+        return Math.floor(Math.random()*50+15);
+    }
+
 }

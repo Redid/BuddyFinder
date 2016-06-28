@@ -1,19 +1,14 @@
-<div class="col-md-12" ng-init="offersViewCtrl.init()">
-    <div class="col-md-6">
-        <table>
-            <thead>
-            <tr>
-                <th>Enabled?</th>
-                <th>Value</th>
-            </tr>
-            </thead>
+<div class="col-md-12" ng-init="offersViewCtrl.init()" >
+    <div class="col-md-12" id="search-bar">
+        <h1 id="filter1">Filter offers!</h1>
+        <table id="filter">
             <tbody>
                 <tr>
                     <td>
-                        <input type="checkbox" ng-model="offersViewCtrl.searchModel.sexEnabled"/>
+                        <input type="checkbox" ng-model="offersViewCtrl.searchModel.sexEnabled" id="check1"/>
                     </td>
                     <td>
-                        <select ng-model="offersViewCtrl.searchModel.sex">
+                        <select ng-model="offersViewCtrl.searchModel.sex" id="selectTmp1">
                             <option value="female">Female</option>
                             <option value="male">Male</option>
                         </select>
@@ -21,16 +16,16 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="checkbox" ng-model="offersViewCtrl.searchModel.whereEnabled"/>
+                        <input type="checkbox" ng-model="offersViewCtrl.searchModel.whereEnabled" id="check2"/>
                     </td>
                     <td>
-                        Where: <input type="text" ng-model="offersViewCtrl.searchModel.where">
+                        <p id = "where">Where<p><input type="text" ng-model="offersViewCtrl.searchModel.where">
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <button ng-click="offersViewCtrl.search()">Search</button>
+        <button ng-click="offersViewCtrl.search()" class="btn btn-success" id="bSearch">Search</button>
     </div>
     <h1 id="htmp"></h1>
     <table class="table table-striped table-hover" id="content1">
@@ -48,27 +43,30 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="offer in offersViewCtrl.offersList" ng-class="{'danger': $index%2 === 1}">
+        <tr ng-repeat="offer in offersViewCtrl.offersList" ng-class="{'danger': $index%2 === 1}" id="tab1">
             <td>{{$index+1}}</td>
             <td ng-if="offersViewCtrl.type !== 'your'">{{offer.user.firstName}} {{offer.user.lastName}}</td>
             <td>
-                <ul>
+                <span ng-if="!offer.when || offer.when.length === 0">anytime</span>
+                <ul ng-if="offer.when">
                     <li ng-repeat="timer in offer.when">
-                        {{timer.from}} - {{timer.to}}
-                        {{timer.date | date:'yyyy-MM-dd HH:mm:ss Z'}}
+                        <span ng-if="timer.from[0]">{{timer.from[0]}}</span><span ng-if="timer.from">:</span><span ng-if="timer.from[1]">{{timer.from[1]}}</span>
+                        <span ng-if="timer.to[0]">{{timer.to[0]}}</span><span ng-if="timer.to">:</span><span ng-if="timer.to[1]">{{timer.to[1]}}</span><br/>
+                        <span ng-if="timer.date[0]">{{timer.date[0]}}</span>.<span ng-if="timer.date[1]">{{timer.date[1]}}</span>.<span ng-if="timer.date[2]">{{timer.date[2]}}</span>
                     </li>
                 </ul>
             </td>
-            <td>{{offer.where}}</td>
+            <td><span ng-if="offer.where">{{offer.where}}</span><span ng-if="!offer.where || offer.where.length === 0">anywhere</span></td>
             <td>{{offer.anotherInfo}}</td>
-            <td>{{offer.preferredSex}}</td>
-            <td>{{offer.preferredAge}}</td>
+            <td><span ng-if="offer.preferredSex">{{offer.preferredSex}}</span><span ng-if="!offer.preferredSex">male</span></td>
+            <td><span ng-if="offer.preferredAge">{{offer.preferredAge}}</span><span ng-if="!offer.preferredAge || offer.preferredAge.length === 0">{{offersViewCtrl.getRandomSpan()}} - {{offersViewCtrl.getRandomSpan()}}</span></td>
             <td ng-if="offersViewCtrl.type !== 'your'">
-                <button href="#" id="buttonContact" class="btn btn-success">Contact owner</button>
+                <button href="#" class="btn btn-success" id="bContact">Contact owner</button>
             </td>
             <td><a href="#/logged/offers/{{offer.id}}">Details</a></td>
         </tr>
         </tbody>
     </table>
     <a href="#/logged/addOffer" class="btn btn-success" id="bMain2">Add new offer for buddies</a>
+    <a href=#/logged class="btn btn-success" id="bMain1">Back</a>
 </div>

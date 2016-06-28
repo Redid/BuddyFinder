@@ -1,11 +1,11 @@
 facebook:
   client:
 #localhost
-#    clientId: 1212950368749024
-#    clientSecret: b803b75a5e5ba36722d14a057bacbb9c
+    clientId: 1212950368749024
+    clientSecret: b803b75a5e5ba36722d14a057bacbb9c
 #digitalocean
-    clientId: 1236126596431401
-    clientSecret: 0f74de71c98963d133edb7e499c01aba
+#    clientId: 1236126596431401
+#    clientSecret: 0f74de71c98963d133edb7e499c01aba
     accessTokenUri: https://graph.facebook.com/oauth/access_token
     userAuthorizationUri: https://www.facebook.com/dialog/oauth
     tokenName: oauth_token
@@ -16,11 +16,11 @@ facebook:
 github:
   client:
 #localhost
-#    clientId: dbcf60c07f8aaf82338a
-#    clientSecret: 3672ed59c68fc9eb952e84a041268022b0c20a5f
+    clientId: dbcf60c07f8aaf82338a
+    clientSecret: 3672ed59c68fc9eb952e84a041268022b0c20a5f
 #digitalocean
-    clientId: 6553c642d9077e74bfc2
-    clientSecret: d0e65bdc6cb09812876a5aadcc86fc42a2db83d5
+#    clientId: 6553c642d9077e74bfc2
+#    clientSecret: d0e65bdc6cb09812876a5aadcc86fc42a2db83d5
     accessTokenUri: https://github.com/login/oauth/access_token
     userAuthorizationUri: https://github.com/login/oauth/authorize
     clientAuthenticationScheme: form
